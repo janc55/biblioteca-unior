@@ -71,12 +71,13 @@ class lista_nota extends Controller
     public function update(Request $request)
     {
         if ($request->ajax()) {
-            tb_asignacion_mat_ests::find($request->id_asig_mat_est)
-                ->update([
-                    $request->notaeval1 => $request->notaeval1
-                ]);
+
+            tb_asignacion_mat_ests::where('id_asig_mat_est',$request->id_asig_mat_est)
+            ->update(['eval_p1'=>12,]);
+
 
             return response()->json(['success' => true]);
+
         }
     }
 
