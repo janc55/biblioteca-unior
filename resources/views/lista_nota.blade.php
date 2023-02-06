@@ -35,15 +35,27 @@
                     <tbody>
                         @foreach($lista as $lista)
                             <tr>
-                                <td>{{ $lista->id_est }}</td>
+                                <td>{{ $lista->id_asig_mat_est }}</td>
                                 <td>
-                                    <a href="" class="update" data-name="cod_est" data-type="text" data-pk="{{ $lista->id_est }}" data-title="Enter name">{{ $lista->cod_est }}</a>
+                                    <a href="" class="update" data-name="cod_est" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter name">{{ $lista->cod_est }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="estudiante" data-type="text" data-pk="{{ $lista->id_est }}" data-title="Enter Detail">{{ $lista->estudiante }}</a>
+                                    <a href="" class="update" data-name="estudiante" data-type="text" data-pk="{{ $lista->id_asig_mat_est}} " data-title="Enter Detail">{{ $lista->nombre_est }} {{ $lista->ape_p_est }} {{ $lista->ape_m_est }}</a>
                                 </td>
                                 <td>
-                                    <a class="deletelista btn btn-xs btn-danger" data-id="{{ $lista->id_est }}">Delete</a>
+                                    <a href="" class="update" data-name="notaeval1" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_p1 }}</a>
+                                </td>
+                                <td>
+                                    <a href="" class="update" data-name="notaeval2" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_p2 }}</a>
+                                </td>
+                                <td>
+                                    <a href="" class="update" data-name="notaevalf" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_fin }}</a>
+                                </td>
+                                <td>
+                                    <a href="" class="update" data-name="notaeval2t" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_2t }}</a>
+                                </td>
+                                <td>
+                                    <a class="deletelista btn btn-xs btn-danger" data-id="{{ $lista->id_asig_mat_est }}">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
