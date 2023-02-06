@@ -77,6 +77,11 @@
 
                                         <th>Codigo</th>
                                         <th>Estudiante</th>
+                                        <th>Docente</th>
+                                        <th>Nota 1P</th>
+                                        <th>Nota 2P</th>
+                                        <th>Nota EF</th>
+                                        {{-- <th>Nota 2T</th> --}}
                                         <th>Nota Final</th>
                                         <th>Estado</th>
 
@@ -129,6 +134,11 @@
 											<td>{{ $tbEstudiante->obs_est }}</td> --}}
                                             <td>{{ $tbEstudiante->cod_est }}</td>
                                             <td>{{ $tbEstudiante->estudiante }}</td>
+                                            <td>{{ $tbEstudiante->docente }}</td>
+                                            <td>{{ $tbEstudiante->eval_p1 }}</td>
+                                            <td>{{ $tbEstudiante->eval_p2 }}</td>
+                                            <td>{{ $tbEstudiante->eval_fin }}</td>
+                                            {{-- <td>{{ $tbEstudiante->eval_2t }}</td> --}}
                                             <td>{{ $tbEstudiante->NotaFinal }}</td>
                                             <td>{{ $tbEstudiante->NotaEstado }}</td>
 
