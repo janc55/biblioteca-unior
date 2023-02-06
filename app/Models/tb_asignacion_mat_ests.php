@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class tb_asignacion_mat_ests extends Model
 {
+    protected $primaryKey = 'id_asig_mat_est';
     use HasFactory;
 }

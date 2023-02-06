@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\lista_nota;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

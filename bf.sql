@@ -1,4 +1,4 @@
-create VIEW vista_nota as
+create VIEW vista_notas as
 SELECT id_asig_mat_est ,am.id_doc,am.id_carre,am.id_sem ,am.gestion_asig_mat,am.periodo_asig_mat,
 am.id_turno,t.desc_turno,concat(d.nombre_doc,' ',d.ape_p_doc,' ',d.ape_m_doc) as docente,d.cod_doc,d.ci,c.nombre_carre,c.sigla_carre,
 a.`id_est`, e.cod_est,concat(e.nombre_est,' ',e.ape_p_est,' ',e.ape_m_est) as estudiante,

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\vista_nota;
+use App\Models\tb_asignacion_mat_ests;
 use Illuminate\Http\Request;
 
 class lista_nota extends Controller
@@ -70,9 +71,9 @@ class lista_nota extends Controller
     public function update(Request $request)
     {
         if ($request->ajax()) {
-            tb_asignacion_mat_ests::find($request->pk)
+            tb_asignacion_mat_ests::find($request->id_asig_mat_est)
                 ->update([
-                    $request->eval_p1 => $request->eval_p1
+                    $request->notaeval1 => $request->notaeval1
                 ]);
 
             return response()->json(['success' => true]);
