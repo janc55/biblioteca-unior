@@ -18,6 +18,15 @@ class lista_nota extends Controller
         return view('lista_nota', compact('lista'));
     }
 
+    public function por_doc(Request $request)
+    {
+
+        echo "Nombre: ".$request->input('nombre')."<br>";
+        echo "Apellido: ".$request->apellido."<br>";
+        echo "Msj: ".request('mensaje')."<br>";
+        $lista = vista_nota::get()->where('docente','Root');;
+        return view('lista_nota', compact('lista'));
+    }
     /**
      * Show the form for creating a new resource.
      *
