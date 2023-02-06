@@ -16,11 +16,6 @@
                                 {{ __('Tb Estudiante') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('tb-estudiantes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -35,8 +30,8 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
-										<th>Id Est</th>
+
+										{{-- <th>Id Est</th>
 										<th>Cod Est</th>
 										<th>Nombre Est</th>
 										<th>Ape P Est</th>
@@ -74,7 +69,12 @@
 										<th>Fact Doc Numero Est</th>
 										<th>Fact Nombre Est</th>
 										<th>Foto Est</th>
-										<th>Obs Est</th>
+										<th>Obs Est</th> --}}
+
+                                        <th>Codigo</th>
+                                        <th>Estudiante</th>
+                                        <th>Nota Final</th>
+                                        <th>Estado</th>
 
                                         <th></th>
                                     </tr>
@@ -83,8 +83,8 @@
                                     @foreach ($tbEstudiantes as $tbEstudiante)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $tbEstudiante->id_est }}</td>
+
+											{{-- <td>{{ $tbEstudiante->id_est }}</td>
 											<td>{{ $tbEstudiante->cod_est }}</td>
 											<td>{{ $tbEstudiante->nombre_est }}</td>
 											<td>{{ $tbEstudiante->ape_p_est }}</td>
@@ -122,17 +122,12 @@
 											<td>{{ $tbEstudiante->fact_doc_numero_est }}</td>
 											<td>{{ $tbEstudiante->fact_nombre_est }}</td>
 											<td>{{ $tbEstudiante->foto_est }}</td>
-											<td>{{ $tbEstudiante->obs_est }}</td>
+											<td>{{ $tbEstudiante->obs_est }}</td> --}}
+                                            <td>{{ $tbEstudiante->cod_est }}</td>
+                                            <td>{{ $tbEstudiante->estudiante }}</td>
+                                            <td>{{ $tbEstudiante->NotaFinal }}</td>
+                                            <td>{{ $tbEstudiante->NotaEstado }}</td>
 
-                                            <td>
-                                                <form action="{{ route('tb-estudiantes.destroy',$tbEstudiante->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('tb-estudiantes.show',$tbEstudiante->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('tb-estudiantes.edit',$tbEstudiante->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TbEstudiante;
+use App\Models\VistaNotaApro;
 use Illuminate\Http\Request;
 
 /**
@@ -18,11 +19,19 @@ class TbEstudianteController extends Controller
      */
     public function index()
     {
-        $tbEstudiantes = TbEstudiante::paginate();
+        $tbEstudiantes = VistaNotaApro::paginate();
 
         return view('tb-estudiante.index', compact('tbEstudiantes'))
             ->with('i', (request()->input('page', 1) - 1) * $tbEstudiantes->perPage());
     }
+
+    // public function index()
+    // {
+    //     $tbEstudiantes = TbEstudiante::paginate();
+
+    //     return view('tb-estudiante.index', compact('tbEstudiantes'))
+    //         ->with('i', (request()->input('page', 1) - 1) * $tbEstudiantes->perPage());
+    // }
 
     /**
      * Show the form for creating a new resource.

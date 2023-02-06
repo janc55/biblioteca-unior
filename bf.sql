@@ -10,7 +10,7 @@ tb_docentes d on d.id_doc=am.id_doc join tb_turnos t on t.id_turno=am.id_turno
 join tb_carreras c on c.id_carre=am.id_carre;
 
 
-CREATE VIEW VistaNotaApro as
+CREATE VIEW vista_nota_apros as
 SELECT v1.cod_est,v1.`estudiante`,
 (v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30) as NotaFinal,
 (
