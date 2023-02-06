@@ -8,3 +8,10 @@ JOIN tb_asignacion_mats am on am.id_asig_mat=a.id_asig_mat
 JOIN tb_materias m on m.id_materia=am.id_materia JOIN
 tb_docentes d on d.id_doc=am.id_doc join tb_turnos t on t.id_turno=am.id_turno
 join tb_carreras c on c.id_carre=am.id_carre;
+
+
+CREATE VIEW VistaNotaApro as
+SELECT v1.cod_est,v1.`estudiante`,
+(
+ IF( v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30 >=51,"Aprobado","Reprobado") ) as NotaFinalR
+from vista_notas v1
