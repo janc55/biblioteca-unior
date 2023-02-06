@@ -14,7 +14,7 @@ class lista_nota extends Controller
      */
     public function index()
     {
-        $lista = vista_nota::get();
+        $lista = vista_nota::get()->where('gestion_asig_mat','2008');
         return view('lista_nota', compact('lista'));
     }
 
@@ -24,7 +24,7 @@ class lista_nota extends Controller
         // echo "Nombre: ".$request->input('nombre')."<br>";
         // echo "Apellido: ".$request->apellido."<br>";
         // echo "Msj: ".request('mensaje')."<br>";
-        $lista = vista_nota::get()->where('docente',$request->input('nombre'));;
+        $lista = vista_nota::get()->where('docente',$request->input('nombre'))->where('gestion_asig_mat','2008');
         return view('lista_nota', compact('lista'));
     }
     /**

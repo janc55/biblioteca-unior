@@ -27,7 +27,7 @@
 </style>
 <body>
 
-    <form action="lista_nota/por_doc" method="POST">
+    <form action="por_doc" method="POST">
 
         @csrf
 
