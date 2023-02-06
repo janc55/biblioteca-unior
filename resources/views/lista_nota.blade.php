@@ -19,16 +19,20 @@
 <body>
     <div class="container">
         <div class="col-md-8 col-md-offset-2">
-        <h2 class="text-center">Laravel 9 Table Inline Edit Using JQuery Editable - NiceSnippest.com</h2>
+        <h2 class="text-center">NOTAS DE LOS ESTUDIANTES</h2>
         <div class="panel panel-info">
-            <div class="panel-heading">Laravel 9 Table Inline Edit Using jQuery editable</div>
+            <div class="panel-heading">LISTA DE ESTUDIANTES</div>
             <div class="panel-body">
                 <table class="table table-bordered data-table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Name</th>
-                            <th>Detail</th>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Nota 1P</th>
+                            <th>Nota 2P</th>
+                            <th>Nota EF</th>
+                            <th>Nota 2T</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -37,25 +41,25 @@
                             <tr>
                                 <td>{{ $lista->id_asig_mat_est }}</td>
                                 <td>
-                                    <a href="" class="update" data-name="cod_est" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter name">{{ $lista->cod_est }}</a>
+                                    <a href="" class="update" data-name="cod_est" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Codigo">{{ $lista->cod_est }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="estudiante" data-type="text" data-pk="{{ $lista->id_asig_mat_est}} " data-title="Enter Detail">{{ $lista->nombre_est }} {{ $lista->ape_p_est }} {{ $lista->ape_m_est }}</a>
+                                    <a href="" class="update" data-name="estudiante" data-type="text" data-pk="{{ $lista->id_asig_mat_est}} " data-title="Enter Nombre">{{ $lista->nombre_est }} {{ $lista->ape_p_est }} {{ $lista->ape_m_est }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaeval1" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_p1 }}</a>
+                                    <a href="" class="update" data-name="notaeval1" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 1P">{{ $lista->eval_p1 }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaeval2" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_p2 }}</a>
+                                    <a href="" class="update" data-name="notaeval2" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 2P">{{ $lista->eval_p2 }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaevalf" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_fin }}</a>
+                                    <a href="" class="update" data-name="notaevalf" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota EF">{{ $lista->eval_fin }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaeval2t" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Detail">{{ $lista->eval_2t }}</a>
+                                    <a href="" class="update" data-name="notaeval2t" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 2T">{{ $lista->eval_2t }}</a>
                                 </td>
                                 <td>
-                                    <a class="deletelista btn btn-xs btn-danger" data-id="{{ $lista->id_asig_mat_est }}">Delete</a>
+                                    <a class="deletelista btn btn-xs btn-danger" data-id="{{ $lista->id_asig_mat_est }}">Borrar</a>
                                 </td>
                             </tr>
                         @endforeach
