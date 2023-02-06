@@ -26,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('lista_nota', [lista_nota::class, 'index'])->name('lista_nota.index');
 Route::post('lista_nota', [lista_nota::class, 'update'])->name('lista_nota.update');
 Route::post('lista_nota/delete/{id}', [lista_nota::class, 'delete'])->name('lista_nota.delete');
+Route::post('/por_doc', [lista_nota::class, 'por_doc'])->name('lista_nota.por_doc');

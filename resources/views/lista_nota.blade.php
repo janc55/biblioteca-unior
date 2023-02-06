@@ -27,6 +27,16 @@
 </style>
 <body>
 
+    <form action="lista_nota/por_doc" method="POST">
+
+        @csrf
+
+        <label>Nombre</label>
+        <input type="text" name="nombre" id="">
+
+        <input type="submit" value="Enviar">
+    </form>
+
         <div class="col-md-8 col-md-offset-2">
         <h2 class="text-center">NOTAS DE LOS ESTUDIANTES</h2>
         <div class="panel panel-info">
