@@ -1,10 +1,14 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
-@section('template_title')
-    Tb Estudiante
-@endsection
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
 
 @section('content')
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -141,11 +145,10 @@
     </div>
     @stop
 
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
 
-    @section('css')
-        <link rel="stylesheet" href="/css/admin_custom.css">
-    @stop
-
-    @section('js')
-        <script> console.log('Hi!'); </script>
-    @stop
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
