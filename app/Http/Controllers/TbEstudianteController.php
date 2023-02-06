@@ -19,7 +19,7 @@ class TbEstudianteController extends Controller
      */
     public function index()
     {
-        $tbEstudiantes = VistaNotaApro::paginate();
+        $tbEstudiantes = VistaNotaApro::where('gestion_asig_mat','2008')->paginate();
 
         return view('tb-estudiante.index', compact('tbEstudiantes'))
             ->with('i', (request()->input('page', 1) - 1) * $tbEstudiantes->perPage());
