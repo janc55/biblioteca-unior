@@ -14,5 +14,5 @@ CREATE VIEW vista_nota_apros as
 SELECT v1.cod_est,v1.`estudiante`,v1.`docente`,v1.eval_p1,v1.eval_p2,v1.eval_fin,v1.eval_2t,
 (v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30) as NotaFinal,
 (
- IF( v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30 >=51,"Aprobado","Reprobado") ) as NotaEstado
+ IF( v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30 >=51,"Aprobado","Reprobado") ) as NotaEstado,v1.gestion_asig_mat
 from vista_notas v1
