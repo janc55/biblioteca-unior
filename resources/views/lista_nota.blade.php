@@ -1,10 +1,19 @@
+
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
 <!DOCTYPE html>
 <html>
 <head>
     <title>Laravel 9 Table Inline Edit Using JQuery Editable - NiceSnippest.com</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/js/jquery-editable-poshytip.min.js"></script>
@@ -17,7 +26,7 @@
     }
 </style>
 <body>
-    <div class="container">
+
         <div class="col-md-8 col-md-offset-2">
         <h2 class="text-center">NOTAS DE LOS ESTUDIANTES</h2>
         <div class="panel panel-info">
@@ -33,34 +42,35 @@
                             <th>Nota 2P</th>
                             <th>Nota EF</th>
                             <th>Nota 2T</th>
-                            <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($lista as $lista)
                             <tr>
-                                <td>{{ $lista->id_asig_mat_est }}</td>
+
                                 <td>
-                                    <a href="" class="update" data-name="cod_est" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Codigo">{{ $lista->cod_est }}</a>
+                                 {{ $lista->id_asig_mat_est }}
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="estudiante" data-type="text" data-pk="{{ $lista->id_asig_mat_est}} " data-title="Enter Nombre">{{ $lista->nombre_est }} {{ $lista->ape_p_est }} {{ $lista->ape_m_est }}</a>
+                                    {{ $lista->cod_est}}
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaeval1" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 1P">{{ $lista->eval_p1 }}</a>
+                               {{ $lista->estudiante }}
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaeval2" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 2P">{{ $lista->eval_p2 }}</a>
+                                    <a href="" class="update" data-name="eval_p1" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 1P">{{ $lista->eval_p1 }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaevalf" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota EF">{{ $lista->eval_fin }}</a>
+                                    <a href="" class="update" data-name="eval_p2" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 2P">{{ $lista->eval_p2 }}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="update" data-name="notaeval2t" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 2T">{{ $lista->eval_2t }}</a>
+                                    <a href="" class="update" data-name="eval_fin" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota EF">{{ $lista->eval_fin }}</a>
                                 </td>
                                 <td>
-                                    <a class="deletelista btn btn-xs btn-danger" data-id="{{ $lista->id_asig_mat_est }}">Borrar</a>
+                                    <a href="" class="update" data-name="eval_2t" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 2T">{{ $lista->eval_2t }}</a>
                                 </td>
+
                             </tr>
                         @endforeach
                     </tbody>
@@ -68,7 +78,7 @@
             </div>
         </div>
         </div>
-    </div>
+
     <script type="text/javascript">
         $.fn.editable.defaults.mode = 'inline';
 
@@ -106,3 +116,14 @@
     </script>
 </body>
 </html>
+
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
