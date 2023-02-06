@@ -70,9 +70,9 @@ class lista_nota extends Controller
     public function update(Request $request)
     {
         if ($request->ajax()) {
-            Product::find($request->pk)
+            tb_asignacion_mat_ests::find($request->pk)
                 ->update([
-                    $request->name => $request->value
+                    $request->eval_p1 => $request->eval_p1
                 ]);
 
             return response()->json(['success' => true]);
