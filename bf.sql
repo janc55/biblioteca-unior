@@ -12,6 +12,7 @@ join tb_carreras c on c.id_carre=am.id_carre;
 
 CREATE VIEW VistaNotaApro as
 SELECT v1.cod_est,v1.`estudiante`,
+(v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30) as NotaFinal,
 (
- IF( v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30 >=51,"Aprobado","Reprobado") ) as NotaFinalR
+ IF( v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30 >=51,"Aprobado","Reprobado") ) as NotaEstado
 from vista_notas v1
