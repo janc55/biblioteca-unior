@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\lista_nota;
 use App\Http\Controllers\TbEstudianteController;
+use App\Http\Controllers\RolesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +19,11 @@ use App\Http\Controllers\TbEstudianteController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::get('lista_nota', [lista_nota::class, 'index'])->name('lista_nota.index');
 Route::post('lista_nota', [lista_nota::class, 'update'])->name('lista_nota.update');
 Route::post('lista_nota/delete/{id}', [lista_nota::class, 'delete'])->name('lista_nota.delete');
 Route::resource('/notas', \App\Http\Controllers\TbEstudianteController::class);
 Route::post('/por_doc', [lista_nota::class, 'por_doc'])->name('lista_nota.por_doc');
+Route::resource('/roles', \App\Http\Controllers\RolesController::class);
