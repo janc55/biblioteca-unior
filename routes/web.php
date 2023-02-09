@@ -26,4 +26,4 @@ Route::post('lista_nota', [lista_nota::class, 'update'])->name('lista_nota.updat
 Route::post('lista_nota/delete/{id}', [lista_nota::class, 'delete'])->name('lista_nota.delete');
 Route::resource('/notas', \App\Http\Controllers\TbEstudianteController::class);
 Route::post('/por_doc', [lista_nota::class, 'por_doc'])->name('lista_nota.por_doc');
-Route::resource('/roles', \App\Http\Controllers\RolesController::class);
+Route::resource('/roles', \App\Http\Controllers\RoleController::class);
