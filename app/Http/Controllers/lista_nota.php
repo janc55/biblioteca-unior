@@ -1,11 +1,10 @@
-
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 use App\Models\vista_nota;
 use App\Models\tb_asignacion_mat_ests;
-use Illuminate\Http\Request;
-
 class lista_nota extends Controller
 {
     /**
