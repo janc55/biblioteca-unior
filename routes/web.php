@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\lista_nota;
 use App\Http\Controllers\TbEstudianteController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\TbLogin2Controller;
+use App\Http\Controllers\TbDocenteController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +31,6 @@ Route::post('lista_nota/delete/{id}', [lista_nota::class, 'delete'])->name('list
 Route::resource('/notas', \App\Http\Controllers\TbEstudianteController::class);
 Route::post('/por_doc', [lista_nota::class, 'por_doc'])->name('lista_nota.por_doc');
 Route::resource('/roles', \App\Http\Controllers\RoleController::class);
+Route::resource('/docente', \App\Http\Controllers\TbDocenteController::class);
+
+
