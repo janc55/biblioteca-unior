@@ -18,9 +18,12 @@
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="usuario">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="contraseña">
+    <form action="funlogin2" method="POST">
+      
+    @csrf
+
+      <input type="text" id="login" class="fadeIn second" name="ci" placeholder="usuario">
+      <input type="text" id="password" class="fadeIn third" name="pass" placeholder="contraseña">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 

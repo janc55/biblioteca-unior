@@ -16,3 +16,23 @@ SELECT v1.cod_est,v1.`estudiante`,v1.`docente`,v1.eval_p1,v1.eval_p2,v1.eval_fin
 (
  IF( v1.eval_p1*0.35+v1.eval_p2*0.35+v1.eval_fin*0.30 >=51,"Aprobado","Reprobado") ) as NotaEstado,v1.gestion_asig_mat
 from vista_notas v1
+
+-- Vista de estudiante con materias asignadas
+CREATE VIEW vista_mat_estudiantes AS
+SELECT e.cod_est,e.nombre_est,e.ape_p_est,e.ape_m_est,e.ci_est,m.codigo_mat,asm.paralelo_asig_mat,
+m.nombre_mat,t.desc_turno,s.desc_sem,d.nombre_doc,d.ape_p_doc,d.ape_m_doc,c.nombre_carre,asm.periodo_asig_mat,asm.gestion_asig_mat
+FROM tb_asignacion_mat_ests ame,tb_asignacion_mats asm,tb_estudiantes e, tb_docentes d,tb_materias m, tb_carreras c, tb_semestres s, tb_turnos t
+WHERE ame.id_asig_mat=asm.id_asig_mat AND ame.id_est=e.id_est AND 
+asm.id_materia AND asm.id_carre=c.id_carre AND asm.id_sem=s.id_sem AND 
+asm.id_doc=d.id_doc AND asm.id_turno=t.id_turno AND e.cod_est='1999';
+
+-- Vista de un estudiante con materia asignadas y notas
+CREATE VIEW vista_mat_nota_estudiantes AS
+SELECT e.cod_est,e.nombre_est,e.ape_p_est,e.ape_m_est,e.ci_est,m.codigo_mat,m.nombre_mat, asi.eval_p1,asi.eval_p2,asi.eval_fin,asi.eval_2t,asi.apro_rep_con_est,asm.periodo_asig_mat,asm.gestion_asig_mat
+FROM tb_asignacion_mat_ests asi,tb_asignacion_mats asm, tb_estudiantes e,tb_turnos t,tb_semestres s, tb_carreras c,tb_materias m
+WHERE asi.id_asig_mat=asm.id_asig_mat AND asi.id_est=e.id_est AND asm.id_materia=m.id_materia AND asm.id_carre=c.id_carre AND asm.id_turno=t.id_turno AND asm.id_sem=s.id_sem 
+
+-- Vista de Docente para ver sus materias asignadas o dictadas
+CREATE VIEW vista_mat_docentes AS
+SELECT d.cod_doc,d.nombre_doc,d.ape_p_doc,d.ape_m_doc,d.ci,m.codigo_mat,m.nombre_mat,asm.paralelo_asig_mat,t.desc_turno, asm.periodo_asig_mat,asm.gestion_asig_mat
+FROM tb_asignacion_mats asm JOIN tb_docentes d ON asm.id_doc=d.id_doc JOIN tb_materias m ON asm.id_materia=m.id_materia JOIN tb_turnos t ON asm.id_turno=t.id_turno JOIN tb_semestres s ON asm.id_sem=s.id_sem

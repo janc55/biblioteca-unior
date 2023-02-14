@@ -6,6 +6,10 @@ use App\Http\Controllers\TbEstudianteController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\TbLogin2Controller;
 use App\Http\Controllers\TbDocenteController;
+use App\Http\Controllers\NotaestudiantesControlller;
+use App\Http\Controllers\EstudiantenotasController;
+use App\Http\Controllers\DocentemateriaController;
+
 
 
 
@@ -32,5 +36,10 @@ Route::resource('/notas', \App\Http\Controllers\TbEstudianteController::class);
 Route::post('/por_doc', [lista_nota::class, 'por_doc'])->name('lista_nota.por_doc');
 Route::resource('/roles', \App\Http\Controllers\RoleController::class);
 Route::resource('/docente', \App\Http\Controllers\TbDocenteController::class);
+Route::resource('/login', \App\Http\Controllers\TbLogin2Controller::class);
+Route::post('/funlogin2', [TbLogin2Controller::class, 'funlogin2']);
+Route::resource('/vista', \App\Http\Controllers\NotaestudiantesControlller::class);
+Route::resource('/vista2', \App\Http\Controllers\EstudiantenotasController::class);
+Route::resource('/docentemateria', \App\Http\Controllers\DocentemateriaController::class);
 
 

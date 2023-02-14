@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TbLogin2;
 use Illuminate\Http\Request;
+use App\Models\TbDocente;
 
 /**
  * Class TbLogin2Controller
@@ -22,6 +23,20 @@ class TbLogin2Controller extends Controller
 
         return view('tb-login2.index', compact('tbLogin2s'))
             ->with('i', (request()->input('page', 1) - 1) * $tbLogin2s->perPage());
+    }
+
+    public function funlogin2(Request $request)
+    {
+        $login2= TbDocente::get()->where('ci',$request->input('ci'));
+   
+        $latestId = TbDocente::latest('id_doc')->first()->id_doc;
+        
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        $out->writeln($$login2);
+
+
+        return view('tb-login2.index', compact('login2'));
+
     }
 
     /**

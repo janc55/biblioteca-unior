@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'UNIOR',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>UNIOR</b>',
+    'logo_img' => 'img/Logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -86,11 +86,11 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'img/Logo.png',
             'alt' => 'Auth Logo',
             'class' => '',
-            'width' => 50,
-            'height' => 50,
+            'width' => 100,
+            'height' => 100,
         ],
     ],
 
@@ -318,71 +318,47 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+
         ['header' => 'account_settings'],
+
+        [
+            'text' => 'Agregar Notas',
+            'url'  => 'lista_nota',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Lista de notas',
+            'url'  => 'lista_nota',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Nota Estudiante',
+            'url'  => 'vista2',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Materias de Estudiantes',
+            'url'  => 'vista',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
+        [
+            'text' => 'Lista de Materias de Docente',
+            'url'  => 'docentemateria',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+       
+
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+       
+
     ],
 
     /*
