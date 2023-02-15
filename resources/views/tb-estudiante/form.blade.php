@@ -192,6 +192,11 @@
             {!! $errors->first('foto_est', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('est_pass') }}
+            {{ Form::text('est_pass', $tbEstudiante->est_pass, ['class' => 'form-control' . ($errors->has('est_pass') ? ' is-invalid' : ''), 'placeholder' => 'Est Pass']) }}
+            {!! $errors->first('est_pass', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('obs_est') }}
             {{ Form::text('obs_est', $tbEstudiante->obs_est, ['class' => 'form-control' . ($errors->has('obs_est') ? ' is-invalid' : ''), 'placeholder' => 'Obs Est']) }}
             {!! $errors->first('obs_est', '<div class="invalid-feedback">:message</div>') !!}

@@ -42,8 +42,8 @@
                                         <th>Nota 2P</th>
                                         <th>Nota EF</th>
                                         <th>Nota 2T</th>                                      
-                                        <!-- <th>Gestion</th> -->
-                                        <th>Observación</th>
+                                        <th>Nota Final</th>
+                                        <th>Estado</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -60,8 +60,8 @@
                                             <td>{{ $vista->eval_fin}}</td>
                                             <td>{{ $vista->eval_2t}}</td>                                           									
                                             <!-- <td>{{ $vista->periodo_asig_mat}} / {{ $vista->gestion_asig_mat}}</td> -->
-                                            <td>{{ $vista->apro_rep_con_est}}</td>
-
+                                            <td>{{ $vista->NotaFinal}}</td>
+                                            <td>{{ $vista->NotaEstado}}</td>
                                             <td>
                                                
                                             </td>

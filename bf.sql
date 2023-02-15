@@ -1,5 +1,5 @@
 create VIEW vista_notas as
-SELECT id_asig_mat_est ,am.id_doc,am.id_carre,am.id_sem ,am.gestion_asig_mat,am.periodo_asig_mat,
+SELECT a.id_asig_mat_est,a.id_asig_mat,am.id_doc,am.id_carre,am.id_sem ,am.gestion_asig_mat,am.periodo_asig_mat,
 am.id_turno,t.desc_turno,concat(d.nombre_doc,' ',d.ape_p_doc,' ',d.ape_m_doc) as docente,d.cod_doc,d.ci,c.nombre_carre,c.sigla_carre,
 a.`id_est`, e.cod_est,concat(e.nombre_est,' ',e.ape_p_est,' ',e.ape_m_est) as estudiante,
 e.ci_est,`eval_p1`,`eval_p2`,`eval_fin`,`eval_2t`
@@ -28,11 +28,10 @@ asm.id_doc=d.id_doc AND asm.id_turno=t.id_turno AND e.cod_est='1999';
 
 -- Vista de un estudiante con materia asignadas y notas
 CREATE VIEW vista_mat_nota_estudiantes AS
-SELECT e.cod_est,e.nombre_est,e.ape_p_est,e.ape_m_est,e.ci_est,m.codigo_mat,m.nombre_mat, asi.eval_p1,asi.eval_p2,asi.eval_fin,asi.eval_2t,asi.apro_rep_con_est,asm.periodo_asig_mat,asm.gestion_asig_mat
+SELECT e.cod_est,e.nombre_est,e.ape_p_est,e.ape_m_est,e.ci_est,m.codigo_mat,m.nombre_mat, asi.eval_p1,asi.eval_p2,asi.eval_fin,asi.eval_2t,asi.apro_rep_con_est,asm.periodo_asig_mat,asm.gestion_asig_mat,
+IF( asi.eval_p1*0.35+asi.eval_p2*0.35+asi.eval_fin*0.30 >=51,"Aprobado","Reprobado")  as NotaEstado,(asi.eval_p1*0.35+asi.eval_p2*0.35+asi.eval_fin*0.30) as NotaFinal
 FROM tb_asignacion_mat_ests asi,tb_asignacion_mats asm, tb_estudiantes e,tb_turnos t,tb_semestres s, tb_carreras c,tb_materias m
-WHERE asi.id_asig_mat=asm.id_asig_mat AND asi.id_est=e.id_est AND asm.id_materia=m.id_materia AND asm.id_carre=c.id_carre AND asm.id_turno=t.id_turno AND asm.id_sem=s.id_sem 
+WHERE asi.id_asig_mat=asm.id_asig_mat AND asi.id_est=e.id_est AND asm.id_materia=m.id_materia AND asm.id_carre=c.id_carre AND asm.id_turno=t.id_turno AND asm.id_sem=s.id_sem; 
 
 -- Vista de Docente para ver sus materias asignadas o dictadas
-CREATE VIEW vista_mat_docentes AS
-SELECT d.cod_doc,d.nombre_doc,d.ape_p_doc,d.ape_m_doc,d.ci,m.codigo_mat,m.nombre_mat,asm.paralelo_asig_mat,t.desc_turno, asm.periodo_asig_mat,asm.gestion_asig_mat
-FROM tb_asignacion_mats asm JOIN tb_docentes d ON asm.id_doc=d.id_doc JOIN tb_materias m ON asm.id_materia=m.id_materia JOIN tb_turnos t ON asm.id_turno=t.id_turno JOIN tb_semestres s ON asm.id_sem=s.id_sem
+CREATE VIEW vista_mat_docentes AS SELECT d.id_doc,d.cod_doc,d.nombre_doc,d.ape_p_doc,d.ape_m_doc,asm.id_asig_mat,d.ci,m.id_materia,m.codigo_mat,m.nombre_mat,asm.paralelo_asig_mat,t.desc_turno, asm.periodo_asig_mat,asm.gestion_asig_mat FROM tb_asignacion_mats asm JOIN tb_docentes d ON asm.id_doc=d.id_doc JOIN tb_materias m ON asm.id_materia=m.id_materia JOIN tb_turnos t ON asm.id_turno=t.id_turno JOIN tb_semestres s ON asm.id_sem=s.id_sem;

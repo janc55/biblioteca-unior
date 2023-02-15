@@ -18,7 +18,7 @@
                         <span class="card-title">Create Tb Docente</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tb-docentes.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('docente.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('tb-docente.form')

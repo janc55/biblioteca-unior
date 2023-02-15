@@ -10,7 +10,7 @@ class EstudiantenotasController extends Controller
     //
     public function index()
     {
-        $vista = vista_mat_nota_estudiantes::get()->where('gestion_asig_mat','2008')->where('id_est','1999');
+        $vista = vista_mat_nota_estudiantes::get()->where('gestion_asig_mat','2008');
         return view('notaestudiante2.index', compact('vista'));
      
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\vista_nota;
+use App\Models\vista_mat_docentes;
 use App\Models\tb_asignacion_mat_ests;
 class lista_nota extends Controller
 {
@@ -26,6 +27,21 @@ class lista_nota extends Controller
         // echo "Msj: ".request('mensaje')."<br>";
         $lista = vista_nota::get()->where('docente',$request->input('nombre'))->where('gestion_asig_mat','2008');
         return view('lista_nota', compact('lista'));
+    }
+
+    public function por_id($id)
+    {
+
+        $lista = vista_nota::get()->where('id_asig_mat',$id);
+        return view('lista_nota', compact('lista'));
+    }
+
+
+    public function seleccionardocente()
+    {
+       
+        $vista = vista_mat_docentes::get()->where('gestion_asig_mat','2008')->where('cod_doc','308');
+        return view('seleccionardocente', compact('vista'));
     }
     /**
      * Show the form for creating a new resource.
@@ -103,6 +119,8 @@ class lista_nota extends Controller
     {
         //
     }
+
+
 
         /**
      * Write code for delete

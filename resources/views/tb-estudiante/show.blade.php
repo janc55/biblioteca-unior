@@ -173,6 +173,10 @@
                             {{ $tbEstudiante->foto_est }}
                         </div>
                         <div class="form-group">
+                            <strong>Est Pass:</strong>
+                            {{ $tbEstudiante->est_pass }}
+                        </div>
+                        <div class="form-group">
                             <strong>Obs Est:</strong>
                             {{ $tbEstudiante->obs_est }}
                         </div>

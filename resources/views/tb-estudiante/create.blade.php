@@ -1,4 +1,10 @@
+@extends('layouts.app')
 
+@section('template_title')
+    Create Tb Estudiante
+@endsection
+
+@section('content')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -10,7 +16,7 @@
                         <span class="card-title">Create Tb Estudiante</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tb-estudiantes.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('agregar') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('tb-estudiante.form')
@@ -21,3 +27,4 @@
             </div>
         </div>
     </section>
+@endsection

@@ -323,10 +323,20 @@ return [
 
         [
             'text' => 'Agregar Notas',
-            'url'  => 'lista_nota',
+            'url'  => 'seleccionar',
             'icon' => 'fas fa-fw fa-user',
         ],
 
+        [
+            'text' => 'Estudiantes',
+            'url'  => 'estudiantes',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Docentes',
+            'url'  => 'docentes',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         [
             'text' => 'Lista de notas',
             'url'  => 'lista_nota',

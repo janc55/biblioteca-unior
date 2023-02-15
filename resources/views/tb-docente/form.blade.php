@@ -1,12 +1,7 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
-        <div class="form-group">
-            {{ Form::label('id_doc') }}
-            {{ Form::text('id_doc', $tbDocente->id_doc, ['class' => 'form-control' . ($errors->has('id_doc') ? ' is-invalid' : ''), 'placeholder' => 'Id Doc']) }}
-            {!! $errors->first('id_doc', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
+             <div class="form-group">
             {{ Form::label('nombre_doc') }}
             {{ Form::text('nombre_doc', $tbDocente->nombre_doc, ['class' => 'form-control' . ($errors->has('nombre_doc') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Doc']) }}
             {!! $errors->first('nombre_doc', '<div class="invalid-feedback">:message</div>') !!}
@@ -23,12 +18,12 @@
         </div>
         <div class="form-group">
             {{ Form::label('cod_doc') }}
-            {{ Form::text('cod_doc', $tbDocente->cod_doc, ['class' => 'form-control' . ($errors->has('cod_doc') ? ' is-invalid' : ''), 'placeholder' => 'Cod Doc']) }}
+            {{ Form::number('cod_doc', $tbDocente->cod_doc, ['class' => 'form-control' . ($errors->has('cod_doc') ? ' is-invalid' : ''), 'placeholder' => 'Cod Doc']) }}
             {!! $errors->first('cod_doc', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('ci') }}
-            {{ Form::text('ci', $tbDocente->ci, ['class' => 'form-control' . ($errors->has('ci') ? ' is-invalid' : ''), 'placeholder' => 'Ci']) }}
+            {{ Form::number('ci', $tbDocente->ci, ['class' => 'form-control' . ($errors->has('ci') ? ' is-invalid' : ''), 'placeholder' => 'Ci']) }}
             {!! $errors->first('ci', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -43,17 +38,17 @@
         </div>
         <div class="form-group">
             {{ Form::label('fec_nac_doc') }}
-            {{ Form::text('fec_nac_doc', $tbDocente->fec_nac_doc, ['class' => 'form-control' . ($errors->has('fec_nac_doc') ? ' is-invalid' : ''), 'placeholder' => 'Fec Nac Doc']) }}
+            {{ Form::date('fec_nac_doc', $tbDocente->fec_nac_doc, ['class' => 'form-control' . ($errors->has('fec_nac_doc') ? ' is-invalid' : ''), 'placeholder' => 'Fec Nac Doc']) }}
             {!! $errors->first('fec_nac_doc', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('tel_dom_doc') }}
-            {{ Form::text('tel_dom_doc', $tbDocente->tel_dom_doc, ['class' => 'form-control' . ($errors->has('tel_dom_doc') ? ' is-invalid' : ''), 'placeholder' => 'Tel Dom Doc']) }}
+            {{ Form::number('tel_dom_doc', $tbDocente->tel_dom_doc, ['class' => 'form-control' . ($errors->has('tel_dom_doc') ? ' is-invalid' : ''), 'placeholder' => 'Tel Dom Doc']) }}
             {!! $errors->first('tel_dom_doc', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('cel_doc') }}
-            {{ Form::text('cel_doc', $tbDocente->cel_doc, ['class' => 'form-control' . ($errors->has('cel_doc') ? ' is-invalid' : ''), 'placeholder' => 'Cel Doc']) }}
+            {{ Form::number('cel_doc', $tbDocente->cel_doc, ['class' => 'form-control' . ($errors->has('cel_doc') ? ' is-invalid' : ''), 'placeholder' => 'Cel Doc']) }}
             {!! $errors->first('cel_doc', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
@@ -61,7 +56,7 @@
             {{ Form::text('dom_doc', $tbDocente->dom_doc, ['class' => 'form-control' . ($errors->has('dom_doc') ? ' is-invalid' : ''), 'placeholder' => 'Dom Doc']) }}
             {!! $errors->first('dom_doc', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             {{ Form::label('lug_doc') }}
             {{ Form::text('lug_doc', $tbDocente->lug_doc, ['class' => 'form-control' . ($errors->has('lug_doc') ? ' is-invalid' : ''), 'placeholder' => 'Lug Doc']) }}
             {!! $errors->first('lug_doc', '<div class="invalid-feedback">:message</div>') !!}
@@ -95,7 +90,7 @@
             {{ Form::label('obser_doc') }}
             {{ Form::text('obser_doc', $tbDocente->obser_doc, ['class' => 'form-control' . ($errors->has('obser_doc') ? ' is-invalid' : ''), 'placeholder' => 'Obser Doc']) }}
             {!! $errors->first('obser_doc', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        </div> -->
         <div class="form-group">
             {{ Form::label('foto_doc') }}
             {{ Form::text('foto_doc', $tbDocente->foto_doc, ['class' => 'form-control' . ($errors->has('foto_doc') ? ' is-invalid' : ''), 'placeholder' => 'Foto Doc']) }}

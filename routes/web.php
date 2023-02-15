@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\lista_nota;
 use App\Http\Controllers\TbEstudianteController;
+
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\TbLogin2Controller;
 use App\Http\Controllers\TbDocenteController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\NotaestudiantesControlller;
 use App\Http\Controllers\EstudiantenotasController;
 use App\Http\Controllers\DocentemateriaController;
 
+use App\Http\Controllers\EstudiantesController;
+use App\Http\Controllers\DocentesController;
 
 
 
@@ -34,6 +37,9 @@ Route::post('lista_nota', [lista_nota::class, 'update'])->name('lista_nota.updat
 Route::post('lista_nota/delete/{id}', [lista_nota::class, 'delete'])->name('lista_nota.delete');
 Route::resource('/notas', \App\Http\Controllers\TbEstudianteController::class);
 Route::post('/por_doc', [lista_nota::class, 'por_doc'])->name('lista_nota.por_doc');
+Route::get('/seleccionar', [lista_nota::class, 'seleccionardocente']);
+Route::get('/id_materia/{id}', [lista_nota::class, 'por_id'])->name('lista_nota.por_id');
+
 Route::resource('/roles', \App\Http\Controllers\RoleController::class);
 Route::resource('/docente', \App\Http\Controllers\TbDocenteController::class);
 Route::resource('/login', \App\Http\Controllers\TbLogin2Controller::class);
@@ -41,5 +47,8 @@ Route::post('/funlogin2', [TbLogin2Controller::class, 'funlogin2']);
 Route::resource('/vista', \App\Http\Controllers\NotaestudiantesControlller::class);
 Route::resource('/vista2', \App\Http\Controllers\EstudiantenotasController::class);
 Route::resource('/docentemateria', \App\Http\Controllers\DocentemateriaController::class);
+Route::resource('/estudiantes', \App\Http\Controllers\EstudiantesController::class);
+Route::resource('/docentes', \App\Http\Controllers\DocentesController::class);
 
 
+Route::post('/agregar', [TbDocenteController::class, 'agregar']);

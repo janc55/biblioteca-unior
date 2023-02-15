@@ -14,4 +14,5 @@ class DocentemateriaController extends Controller
         return view('docentemateria.index', compact('vista'));
      
     }
+    
 }

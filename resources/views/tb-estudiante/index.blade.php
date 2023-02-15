@@ -1,14 +1,10 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
-@section('title', 'Dashboard')
-
-@section('content_header')
-    <h1>Dashboard</h1>
-@stop
+@section('template_title')
+    Tb Estudiante
+@endsection
 
 @section('content')
-
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -20,6 +16,11 @@
                                 {{ __('Tb Estudiante') }}
                             </span>
 
+                             <div class="float-right">
+                                <a href="{{ route('tb-estudiantes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
+                                </a>
+                              </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -34,8 +35,8 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-
-										{{-- <th>Id Est</th>
+                                        
+										<th>Id Est</th>
 										<th>Cod Est</th>
 										<th>Nombre Est</th>
 										<th>Ape P Est</th>
@@ -73,17 +74,8 @@
 										<th>Fact Doc Numero Est</th>
 										<th>Fact Nombre Est</th>
 										<th>Foto Est</th>
-										<th>Obs Est</th> --}}
-
-                                        <th>Codigo</th>
-                                        <th>Estudiante</th>
-                                        <th>Docente</th>
-                                        <th>Nota 1P</th>
-                                        <th>Nota 2P</th>
-                                        <th>Nota EF</th>
-                                        {{-- <th>Nota 2T</th> --}}
-                                        <th>Nota Final</th>
-                                        <th>Estado</th>
+										<th>Est Pass</th>
+										<th>Obs Est</th>
 
                                         <th></th>
                                     </tr>
@@ -92,8 +84,8 @@
                                     @foreach ($tbEstudiantes as $tbEstudiante)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-
-											{{-- <td>{{ $tbEstudiante->id_est }}</td>
+                                            
+											<td>{{ $tbEstudiante->id_est }}</td>
 											<td>{{ $tbEstudiante->cod_est }}</td>
 											<td>{{ $tbEstudiante->nombre_est }}</td>
 											<td>{{ $tbEstudiante->ape_p_est }}</td>
@@ -131,17 +123,18 @@
 											<td>{{ $tbEstudiante->fact_doc_numero_est }}</td>
 											<td>{{ $tbEstudiante->fact_nombre_est }}</td>
 											<td>{{ $tbEstudiante->foto_est }}</td>
-											<td>{{ $tbEstudiante->obs_est }}</td> --}}
-                                            <td>{{ $tbEstudiante->cod_est }}</td>
-                                            <td>{{ $tbEstudiante->estudiante }}</td>
-                                            <td>{{ $tbEstudiante->docente }}</td>
-                                            <td>{{ $tbEstudiante->eval_p1 }}</td>
-                                            <td>{{ $tbEstudiante->eval_p2 }}</td>
-                                            <td>{{ $tbEstudiante->eval_fin }}</td>
-                                            {{-- <td>{{ $tbEstudiante->eval_2t }}</td> --}}
-                                            <td>{{ $tbEstudiante->NotaFinal }}</td>
-                                            <td>{{ $tbEstudiante->NotaEstado }}</td>
+											<td>{{ $tbEstudiante->est_pass }}</td>
+											<td>{{ $tbEstudiante->obs_est }}</td>
 
+                                            <td>
+                                                <form action="{{ route('tb-estudiantes.destroy',$tbEstudiante->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('tb-estudiantes.show',$tbEstudiante->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('tb-estudiantes.edit',$tbEstudiante->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -153,12 +146,4 @@
             </div>
         </div>
     </div>
-    @stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
-@stop
+@endsection

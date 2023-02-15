@@ -32,7 +32,7 @@ class TbDocenteController extends Controller
     public function create()
     {
         $tbDocente = new TbDocente();
-        return view('tb-docentes.create', compact('tbDocente'));
+        return view('tb-docente.create', compact('tbDocente'));
     }
 
     /**
@@ -47,9 +47,21 @@ class TbDocenteController extends Controller
 
         $tbDocente = TbDocente::create($request->all());
 
-        return redirect()->route('tb-docentes.index')
+        return redirect()->route('tb-docente.index')
             ->with('success', 'TbDocente created successfully.');
     }
+
+    public function agregar(Request $request)
+    {
+        // DB::insert('insert into users (id, name) values (?, ?)', [1, 'Dayle']);
+        TbDocente::insert("insert into tb_docentes (nombre_doc) values ('aaa')");
+        $tbDocentes = TbDocente::paginate();
+
+        return view('tb-docente.index', compact('tbDocentes'))
+            ->with('i', (request()->input('page', 1) - 1) * $tbDocentes->perPage());
+
+    }
+
 
     /**
      * Display the specified resource.
