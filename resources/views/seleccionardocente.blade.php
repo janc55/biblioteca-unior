@@ -58,7 +58,8 @@
                                             
 
                                             <td>
-                                            <a class="btn btn-sm btn-success" href="{{ route('lista_nota.por_id',$vista->id_asig_mat) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('lista_nota.por_id',$vista->id_asig_mat) }}"><i class="fa fa-fw fa-edit"></i> Notas</a>
+                                            <a class="btn btn-sm btn-success" href="{{ route('lista_nota.nomina_est_id',$vista->id_asig_mat) }}"><i class="fa fa-fw fa-edit"></i> Nomina</a>
                                                   
                                             </td>
                                         </tr>

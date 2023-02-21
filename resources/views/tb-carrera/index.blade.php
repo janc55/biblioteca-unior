@@ -1,0 +1,93 @@
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                            <span id="card_title">
+                                {{ __('Tb Carrera') }}
+                            </span>
+
+                             <div class="float-right">
+                                <a href="{{ route('carreras.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
+                                </a>
+                              </div>
+                        </div>
+                    </div>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead">
+                                    <tr>
+                                        <th>No</th>
+                                        
+										<th>Id Carre</th>
+										<th>Nombre Carre</th>
+										<th>Sigla Carre</th>
+										<th>Habi Carre</th>
+										<th>Fec Carre</th>
+										<th>Imp Carre</th>
+										<th>Res Carre</th>
+
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($tbCarrera as $tbCarrera)
+                                        <tr>
+                                            <td>{{ ++$i }}</td>
+                                            
+											<td>{{ $tbCarrera->id_carre }}</td>
+											<td>{{ $tbCarrera->nombre_carre }}</td>
+											<td>{{ $tbCarrera->sigla_carre }}</td>
+											<td>{{ $tbCarrera->habi_carre }}</td>
+											<td>{{ $tbCarrera->fec_carre }}</td>
+											<td>{{ $tbCarrera->imp_carre }}</td>
+											<td>{{ $tbCarrera->res_carre }}</td>
+
+                                            <td>
+                                                <form action="{{ route('carreras.destroy',$tbCarrera->id_carre) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('carreras.show',$tbCarrera->id_carre) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('carreras.edit',$tbCarrera->id_carre) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
+

@@ -7,12 +7,21 @@ use App\Http\Controllers\TbEstudianteController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\TbLogin2Controller;
 use App\Http\Controllers\TbDocenteController;
+
+
 use App\Http\Controllers\NotaestudiantesControlller;
 use App\Http\Controllers\EstudiantenotasController;
 use App\Http\Controllers\DocentemateriaController;
 
 use App\Http\Controllers\EstudiantesController;
 use App\Http\Controllers\DocentesController;
+
+use App\Http\Controllers\TbGestioneController;
+use App\Http\Controllers\TbMateriaController;
+use App\Http\Controllers\TbCarreraController;
+use App\Http\Controllers\TbBoletaController;
+use App\Http\Controllers\TbBecaController;
+use App\Http\Controllers\TbplaneController;
 
 
 
@@ -39,7 +48,7 @@ Route::resource('/notas', \App\Http\Controllers\TbEstudianteController::class);
 Route::post('/por_doc', [lista_nota::class, 'por_doc'])->name('lista_nota.por_doc');
 Route::get('/seleccionar', [lista_nota::class, 'seleccionardocente']);
 Route::get('/id_materia/{id}', [lista_nota::class, 'por_id'])->name('lista_nota.por_id');
-
+Route::get('/nomina/{id}', [lista_nota::class, 'nomina_est_id'])->name('lista_nota.nomina_est_id');
 Route::resource('/roles', \App\Http\Controllers\RoleController::class);
 Route::resource('/docente', \App\Http\Controllers\TbDocenteController::class);
 Route::resource('/login', \App\Http\Controllers\TbLogin2Controller::class);
@@ -52,3 +61,14 @@ Route::resource('/docentes', \App\Http\Controllers\DocentesController::class);
 
 
 Route::post('/agregar', [TbDocenteController::class, 'agregar']);
+
+Route::resource('/gestiones', \App\Http\Controllers\TbGestioneController::class);
+Route::post('gestiones/delete/{id}', [TbGestioneController::class, 'delete'])->name('gestiones.delete');
+
+Route::resource('/materias', \App\Http\Controllers\TbMateriaController::class);
+Route::resource('/carreras', \App\Http\Controllers\TbCarreraController::class);
+Route::resource('/boletas', \App\Http\Controllers\TbBoletaController::class);
+Route::resource('/becas', \App\Http\Controllers\TbBecaController::class);
+Route::resource('/plane', \App\Http\Controllers\TbplaneController::class);
+
+

@@ -36,6 +36,12 @@ class lista_nota extends Controller
         return view('lista_nota', compact('lista'));
     }
 
+    public function nomina_est_id($id)
+    {
+
+        $lista = vista_nota::get()->where('id_asig_mat',$id);
+        return view('nomina_estudiantes', compact('lista'));
+    }
 
     public function seleccionardocente()
     {

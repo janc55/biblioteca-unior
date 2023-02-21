@@ -360,7 +360,37 @@ return [
             'url'  => 'docentemateria',
             'icon' => 'fas fa-fw fa-user',
         ],
-       
+
+        [
+            'text' => 'Carreras',
+            'url'  => 'carreras',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Materias',
+            'url'  => 'materias',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Boletas',
+            'url'  => 'boletas',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Gestiones',
+            'url'  => 'gestiones',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Becas',
+            'url'  => 'becas',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Planes',
+            'url'  => 'plane',
+            'icon' => 'fas fa-fw fa-user',
+        ],
 
         [
             'text' => 'profile',
