@@ -46,7 +46,7 @@ class lista_nota extends Controller
     public function seleccionardocente()
     {
        
-        $vista = vista_mat_docentes::get()->where('gestion_asig_mat','2008')->where('cod_doc','308');
+        $vista = vista_mat_docentes::get()->where('anio_gestion','2022')->where('cod_doc','129');
         return view('seleccionardocente', compact('vista'));
     }
     /**

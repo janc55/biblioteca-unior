@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\TbEstudiante;
-use App\Models\VistaNotaApro;
 use Illuminate\Http\Request;
+use App\Models\TbEstudiante;
 
+use App\Models\vista_est_ci_carrs;
+use App\Models\TbCarrera;
+use App\Models\Tbplane;
+use App\Models\TbEstCarr;
 /**
  * Class TbEstudianteController
  * @package App\Http\Controllers
@@ -17,14 +19,6 @@ class TbEstudianteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $tbEstudiantes = VistaNotaApro::where('gestion_asig_mat','2008')->paginate();
-
-        return view('tb-estudiante.index', compact('tbEstudiantes'))
-            ->with('i', (request()->input('page', 1) - 1) * $tbEstudiantes->perPage());
-    }
-
     // public function index()
     // {
     //     $tbEstudiantes = TbEstudiante::paginate();
@@ -32,6 +26,13 @@ class TbEstudianteController extends Controller
     //     return view('tb-estudiante.index', compact('tbEstudiantes'))
     //         ->with('i', (request()->input('page', 1) - 1) * $tbEstudiantes->perPage());
     // }
+
+    public function index()
+    {
+        $tbEstudiantes = vista_est_ci_carrs::paginate();
+
+        return view('tb-estudiante.index', compact('tbEstudiantes'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -41,7 +42,12 @@ class TbEstudianteController extends Controller
     public function create()
     {
         $tbEstudiante = new TbEstudiante();
-        return view('tb-estudiante.create', compact('tbEstudiante'));
+     
+
+        $tbCarrera = TbCarrera::get();
+        $tbEstudiante = TbEstudiante::get();
+        $tbplane = Tbplane::get();
+        return view('tb-estudiante.create', compact('tbEstudiante'), compact('tbCarrera'),compact('tbplane'));
     }
 
     /**
@@ -52,12 +58,31 @@ class TbEstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(TbEstudiante::$rules);
 
-        $tbEstudiante = TbEstudiante::create($request->all());
+ 
+        $est =TbEstudiante::create([
+            'nombre_est'       => $request->nombre_est,
+            'ape_p_est'         => $request->ape_p_est,
+            'ape_m_est'         => $request->ape_m_est,
+            'ci_est'           => $request->ci_est,
+            'fec_nac_est'         => $request->fec_nac_est,
+            'tel_dom_est'         => $request->tel_dom_est,
+            'dir_est'            => $request->dir_est,
+            'cel_est'            => $request->cel_est,
+                        
+]);
 
-        return redirect()->route('tb-estudiantes.index')
-            ->with('success', 'TbEstudiante created successfully.');
+TbEstCarr::create([
+    'id_est'       => $est ->id,
+    'id_carre'         => $request->id_c,
+    'id_turno'         => $request->id_turno,
+    'id_pl'           => $request->id_plan,
+    
+                
+]);
+
+        return redirect()->route('estudiantes.index')
+            ->with('success', $est ->id_est);
     }
 
     /**

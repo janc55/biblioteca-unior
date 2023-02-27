@@ -391,6 +391,11 @@ return [
             'url'  => 'plane',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'Asignación',
+            'url'  => 'est_mat_lista',
+            'icon' => 'fas fa-fw fa-user',
+        ],
 
         [
             'text' => 'profile',

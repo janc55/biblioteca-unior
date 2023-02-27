@@ -49,7 +49,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TbDocente extends Model
 {
-    
+    protected $primaryKey = 'id_doc';
     static $rules = [
 		'id_doc' => 'required',
     ];

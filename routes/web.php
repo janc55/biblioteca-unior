@@ -22,6 +22,10 @@ use App\Http\Controllers\TbCarreraController;
 use App\Http\Controllers\TbBoletaController;
 use App\Http\Controllers\TbBecaController;
 use App\Http\Controllers\TbplaneController;
+use App\Http\Controllers\TbAsignacionMatController;
+use App\Http\Controllers\TbAsignacionMatEstController;
+
+
 
 
 
@@ -56,7 +60,7 @@ Route::post('/funlogin2', [TbLogin2Controller::class, 'funlogin2']);
 Route::resource('/vista', \App\Http\Controllers\NotaestudiantesControlller::class);
 Route::resource('/vista2', \App\Http\Controllers\EstudiantenotasController::class);
 Route::resource('/docentemateria', \App\Http\Controllers\DocentemateriaController::class);
-Route::resource('/estudiantes', \App\Http\Controllers\EstudiantesController::class);
+Route::resource('/estudiantes', \App\Http\Controllers\TbEstudianteController::class);
 Route::resource('/docentes', \App\Http\Controllers\DocentesController::class);
 
 
@@ -70,5 +74,23 @@ Route::resource('/carreras', \App\Http\Controllers\TbCarreraController::class);
 Route::resource('/boletas', \App\Http\Controllers\TbBoletaController::class);
 Route::resource('/becas', \App\Http\Controllers\TbBecaController::class);
 Route::resource('/plane', \App\Http\Controllers\TbplaneController::class);
+
+
+Route::get('/sel_docente', [TbAsignacionMatController::class, 'docente_lista']);
+Route::post('/mat_lista/{id}', [TbAsignacionMatController::class, 'funcion_mat'])->name('mat_lista');;
+
+Route::get('/est_mat_lista', [TbAsignacionMatEstController::class, 'funcion_est_ci_carrera'])->name('est_mat_lista');;
+
+
+Route::resource('/asignacionest', \App\Http\Controllers\TbAsignacionMatEstController::class);
+
+Route::post('/reg_mat', [TbAsignacionMatController::class, 'docente_materia_funcion'])->name('rg_mt');;
+
+
+Route::get('/sel_docente', [TbEstudianteController::class, 'docente_lista']);
+
+
+
+Route::get('/nomina_est', [TbEstudianteController::class, 'docente_lista']);
 
 

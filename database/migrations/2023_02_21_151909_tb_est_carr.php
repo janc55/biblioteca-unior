@@ -23,7 +23,6 @@ return new class extends Migration
             $table->date('fec_de_inicio');
             $table->date('fec_de_fin');
             // $table->foreign('id_tipo')->reference('id')->on('tipo');
-
             $table->timestamps();
 
             $table->foreign('id_est')->reference('id_est')->on('tb_estudiantes');

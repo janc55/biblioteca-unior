@@ -46,7 +46,7 @@ class TbMateriaController extends Controller
         request()->validate(TbMateria::$rules);
 
         $tbMateria = TbMateria::create($request->all());
-
+        
         return redirect()->route('materias.index')
             ->with('success', 'TbMateria created successfully.');
     }
