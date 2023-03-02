@@ -62,6 +62,18 @@ Route::resource('/roles', \App\Http\Controllers\RoleController::class);
 Route::resource('/docente', \App\Http\Controllers\TbDocenteController::class);
 
 Route::resource('/login', \App\Http\Controllers\TbLogin2Controller::class);
+// Login Ruta
+// Route::view('/','Bienvenido');
+// Route::view('login','login');
+// Route::view('dashboasrd','dashboasrd');
+
+// Route::post('login',funtion(){
+//     return request('ci');
+// });
+
+
+// Login
+
 Route::post('/funlogin2', [TbLogin2Controller::class, 'funlogin2']);
 
 Route::resource('/vista', \App\Http\Controllers\NotaestudiantesControlller::class);
@@ -101,11 +113,9 @@ Route::post('/est_doc_mate_gest', [TbAsignacionMatEstController::class, 'funcion
 
 Route::post('/asigP', [TbAsignacionMatEstController::class, 'estudiante_materia_funcion'])->name('asigP');
 
-Route::resource('/inscripciones', \App\Http\Controllers\InscripcionesController::class);
 
 Route::get('/boletas_2', [TbBoletaController::class, 'funcion_est_bol']);
 Route::post('/boleta_asignar', [TbBoletaController::class, 'crear_boleta'])->name('boleta_asignar');
-
 Route::get('/inscripciones_boleta', [InscripcionesController::class, 'funcion_boleta_ins']);
-
 Route::post('/reg_ins', [InscripcionesController::class, 'reg_ins'])->name('reg_ins');;
+

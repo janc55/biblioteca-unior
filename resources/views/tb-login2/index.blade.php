@@ -17,8 +17,8 @@
       <img src="img/logo.png" id="icon" alt="User Icon" />
     </div>
 
-    <!-- Login Form -->
-    <form action="funlogin2" method="POST">
+    <!-- Login Form --> 
+    <form action="funlogin2.php" method="POST">
       
     @csrf
 
@@ -34,6 +34,8 @@
 
   </div>
 </div>
+
+
    
 
 

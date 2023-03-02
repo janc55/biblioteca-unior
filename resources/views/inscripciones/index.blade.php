@@ -36,7 +36,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                      
                                         
 										<th>Cod</th>
 										<th>Estudiante</th>
@@ -54,7 +54,7 @@
                                 <tbody>
                                     @foreach ($lista as $lista)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                     
                                             
 											<td>{{ $lista->cod_est }}</td>
 											<td>{{ $lista->ape_p_est}}{{ $lista->ape_m_est}}{{ $lista->nombre_est}}</td>

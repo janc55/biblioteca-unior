@@ -52,5 +52,14 @@ class InscripcionesController extends Controller
         return view('inscripciones.lista_inscripciones', compact('lista'));         
        
     }
+    public function create()
+    {
+      
+    }
+
+    public function show($id)
+    {
+        
+    }
 
 }

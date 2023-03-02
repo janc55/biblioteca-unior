@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TbEstudiante;
+use App\Models\tb_docentes;
 
 use App\Models\vista_est_ci_carrs;
 use App\Models\TbCarrera;
@@ -139,5 +140,12 @@ TbEstCarr::create([
 
         return redirect()->route('tb-estudiantes.index')
             ->with('success', 'TbEstudiante deleted successfully');
+    }
+
+    public function docente_lista()
+    {
+
+        $lista = tb_docentes::get();
+        return view('tb-asignacion-mat.lista_docentes', compact('lista'));
     }
 }

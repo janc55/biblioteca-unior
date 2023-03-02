@@ -392,71 +392,73 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Asignación',
+            'text' => 'Asignación Estudiante Materia',
             'url'  => 'est_carrera',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Seleccionar Docente',
+            'text' => 'Asignación Docente Materia',
             'url'  => 'sel_docente',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'Asignacion Estudiante',
-            'url'  => 'asignacionest',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Seleccionar Docente y materia',
-            'url'  => 'reg_mat',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Nomina Estudiante',
-            'url'  => 'nomina_est',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Estudiante con materia',
-            'url'  => 'est_doc_mate_gest',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Estudiante funcion materia',
-            'url'  => 'asigP',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+        // [
+        
+        //     'text' => 'Asignacion Estudiante',
+        //     'url'  => 'asignacionest',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Seleccionar Docente y materia',
+        //     'url'  => 'reg_mat',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Nomina Estudiante',
+        //     'url'  => 'nomina_est',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Estudiante con materia',
+        //     'url'  => 'est_doc_mate_gest',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Estudiante funcion materia',
+        //     'url'  => 'asigP',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Inscripciones',
+        //     'url'  => 'inscripciones',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+       
+        // [
+        //     'text' => 'Asignar boleta',
+        //     'url'  => 'boleta_asignar',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
         [
             'text' => 'Inscripciones',
-            'url'  => 'inscripciones',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Boleta a Estudiante',
-            'url'  => 'boletas_2',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Asignar boleta',
-            'url'  => 'boletas_2',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Inscripciones Boleta',
             'url'  => 'inscripciones_boleta',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Registro Inscripciones',
-            'url'  => 'reg_ins',
+            'text' => 'Crear Boleta de Estudiante',
+            'url'  => 'boletas_2',
             'icon' => 'fas fa-fw fa-user',
         ],
+        // [
+        //     'text' => 'Registro Inscripciones',
+        //     'url'  => 'reg_ins',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
 
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
        
 
     ],
