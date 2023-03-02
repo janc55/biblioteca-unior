@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\TbAsignacionMatEst;
 use Illuminate\Http\Request;
 use App\Models\vista_est_ci_carrs;
+use App\Models\tb_estudiantes;
+use App\Models\vista_asignacion_est_mate_doc_turno_ges;
+
 /**
  * Class TbAsignacionMatEstController
  * @package App\Http\Controllers
@@ -110,11 +113,15 @@ class TbAsignacionMatEstController extends Controller
     public function estudiante_materia_funcion(Request $request)
     {
 
-
         TbAsignacionMatEst::create([
-                        'id_asig_mat'       => $request->id_asig,
-                        'id_est'            => $request->id_est,
-                      
+        'id_asig_mat'       => $request->id_asig_mat,
+        'id_est'            => $request->id_est,
+        'eval_p1'           => 0,
+        'eval_p2'           => 0,
+        'eval_fin'          => 0,
+        'eval_2t'           => 0,
+        'obs_asig'          => 'Ninguna',
+       
         ]);
 
        // TbAsignacionMat::insert('insert into tb_asignacion_mats (id_materia, id_doc, id_carre,id_turno,id_gestion,paralelo_asig_mat) values (?,?,?,?,?,?)', [$request->id_mat,$request->id_doc,1,$request->id_turno,4,$request->id_materia]);
@@ -128,6 +135,14 @@ class TbAsignacionMatEstController extends Controller
     {
         $lista = vista_est_ci_carrs::paginate();
         return view('tb-asignacion-mat-est.lista_estudiantes', compact('lista'));
+          
+    }
+    
+   
+    public function funcion_est_mate_doc_ges(Request $request)
+    {
+        $lista = vista_asignacion_est_mate_doc_turno_ges::paginate();
+        return view('tb-asignacion-mat-est.lista_est_mat_doc_ges', compact('lista'));
           
     }
 }

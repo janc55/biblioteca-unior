@@ -54,7 +54,7 @@
                                             <td>{{ $vista->codigo_mat }} {{ $vista->nombre_mat }} {{ $vista->paralelo_asig_mat }}</td>                                            
                                             
                                             <td>{{ $vista->desc_turno}}</td>                                           									
-                                            <td>{{ $vista->periodo_asig_mat}} / {{ $vista->gestion_asig_mat}}</td>
+                                            <td>{{ $vista->periodo_gestion}} / {{ $vista->anio_gestion}}</td>
                                             
 
                                             <td>

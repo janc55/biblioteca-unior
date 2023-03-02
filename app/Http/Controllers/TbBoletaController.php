@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\TbBoleta;
+use App\Models\tb_cuentas;
+use App\Models\tb_gestiones;
+use App\Models\tb_estudiantes;
 use Illuminate\Http\Request;
-
+use App\Models\vista_est_ci_carrs;
+use App\Models\vista_boleta_antes_de_inscripcion;
 /**
  * Class TbBoletaController
  * @package App\Http\Controllers
@@ -32,8 +36,23 @@ class TbBoletaController extends Controller
     public function create()
     {
         $tbBoleta = new TbBoleta();
-        return view('tb-boleta.create', compact('tbBoleta'));
+        $tbCuenta = tb_cuentas::get();
+        $tbGestion = tb_gestiones::get();
+        $tbEstudiante = tb_estudiantes::get()->where('id_est','=',$request->id_est);
+
+        return view('tb-boleta.create', compact('tbBoleta'),compact('tbEstudiante'),compact('tbCuenta'),compact('tbGestion'),compact('id_est'));
     }
+
+    public function crear_boleta(Request $request)
+    {
+        $tbBoleta = new TbBoleta();
+        $tbCuenta = tb_cuentas::get();
+        $tbGestion = tb_gestiones::get();
+        $id_est=$request->id_est;
+        $dato=$request->dato;
+        return view('tb-boleta.create',compact('id_est'), compact('dato'), compact('tbBoleta'));
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -43,9 +62,17 @@ class TbBoletaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(TbBoleta::$rules);
-
-        $tbBoleta = TbBoleta::create($request->all());
+       
+     
+        $tbBoleta = TbBoleta::create([
+            'id_est'            => $request->id_est,
+            'fec_reg_boleta'    => $request->fec_reg_boleta, 
+            'id_cuenta'         => $request->id_cuenta,
+            'id_gestion'        => $request->id_gestion,
+            'nro_deposito'      => $request->nro_deposito,
+            'monto_boleta'      => $request->monto_boleta,
+            'obs_boleta'        => $request->obs_boleta,
+        ]);
 
         return redirect()->route('tb-boletas.index')
             ->with('success', 'TbBoleta created successfully.');
@@ -106,4 +133,20 @@ class TbBoletaController extends Controller
         return redirect()->route('tb-boletas.index')
             ->with('success', 'TbBoleta deleted successfully');
     }
+
+    public function funcion_est_ci_carrera()
+    {
+        $lista = vista_est_ci_carrs::paginate();
+        return view('tb-boleta.lista_estudiantes_boleta', compact('lista'));
+          
+    }
+
+    public function funcion_est_bol()
+    {
+        $lista = vista_est_ci_carrs::paginate();
+        return view('tb-boleta.lista_estudiantes_boleta', compact('lista'));
+          
+    }
+    
+    
 }

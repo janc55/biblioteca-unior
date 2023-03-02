@@ -93,3 +93,37 @@ JOIN tb_estudiantes e ON ec.id_est=e.id_est
 JOIN tb_turnos t ON ec.id_turno=t.id_turno 
 JOIN tbplanes p ON ec.id_pl=p.id_pl 
 JOIN tb_carreras c ON ec.id_carre=c.id_carre
+
+-- vista de estudiante, docente, carrera, materia, gestion, turno, asignacion_mats
+CREATE VIEW vista_asignacion_est_mate_doc_turno_ges as
+SELECT ame.id_asig_mat,ame.id_est,m.codigo_mat,m.nombre_mat,c.nombre_carre,d.id_doc,d.cod_doc,d.nombre_doc,d.ape_p_doc,d.ape_m_doc,t.desc_turno,g.periodo_gestion,g.anio_gestion
+FROM tb_asignacion_mat_ests ame 
+JOIN tb_asignacion_mats asm ON ame.id_asig_mat=asm.id_asig_mat
+JOIN tb_materias m ON asm.id_materia=m.id_materia
+JOIN tb_carreras c ON asm.id_carre=c.id_carre
+JOIN tb_docentes d ON asm.id_doc=d.id_doc
+JOIN tb_turnos t ON asm.id_turno=t.id_turno
+JOIN tb_gestiones g ON asm.id_gestion=g.id_gestion
+JOIN tb_estudiantes e ON ame.id_est=e.id_est
+
+-- vista de inscripciones del estudiante
+CREATE VIEW vista_para_inscripciones as
+SELECT e.id_est,e.cod_est,e.nombre_est,e.ape_p_est,e.ape_m_est,e.ci_est,
+g.id_gestion,g.periodo_gestion,g.anio_gestion, be.id_beca,be.nombre_beca,be.desc_beca,be.habi_beca,be.prom_beca,
+bo.id_boleta,bo.monto_boleta,bo.id_cuenta,bo.nro_depos
+FROM `tb_inscripciones` ins 
+JOIN tb_estudiantes e ON ins.id_est=e.id_est
+JOIN tb_gestiones g ON ins.id_gestion=g.id_gestion
+JOIN tb_becas be ON ins.id_beca=be.id_beca
+JOIN tb_boletas bo ON ins.id_boleta=bo.id_boleta
+
+-- vista de boleta antes de inscripcion
+CREATE VIEW vista_boleta_antes_de_inscripcion as
+SELECT e.id_est,e.cod_est,e.nombre_est,e.ape_p_est,e.ape_m_est,e.ci_est,
+g.id_gestion,g.periodo_gestion,g.anio_gestion, 
+bo.id_boleta,bo.monto_boleta,bo.nro_depos,
+c.banco,c.id_cuenta,c.nro_cuenta
+FROM `tb_boletas` bo
+JOIN tb_estudiantes e ON bo.id_est=e.id_est
+JOIN tb_gestiones g ON bo.id_gestion=g.id_gestion
+JOIN tb_cuentas c ON bo.id_cuenta=c.id_cuenta

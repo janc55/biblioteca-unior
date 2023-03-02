@@ -32,12 +32,14 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <!-- <th>No</th> -->
                                         
 										<th>Codigo</th>
 										<th>Nombre</th>
 										<th>CI</th>
                                         <th>Carrera</th>
+                                        <th>Turno</th>
+                                        <th>Plan</th>
                                         <th>Asignar Materia</th>
 
 							
@@ -52,17 +54,22 @@
 											<td>{{ $lista->ape_p_est}} {{ $lista->ape_m_est}} {{ $lista->nombre_est}}</td>
 											<td>{{ $lista->ci_est}}</td>
                                             <td>{{ $lista->nombre_carre}}</td>
-
+                                            <td>{{ $lista->desc_turno}}</td>
+                                            <td>{{ $lista->nombre_plan}}</td>
 
                                             <td>
                                               
                                             <div class="card-body">
-                                                <form method="POST" action="{{ route('est_mat_lista',$lista->id_est) }}"  role="form" enctype="multipart/form-data">
-                                                    @csrf
+                                            <form method="POST" action="{{ route('lista_para_asignar') }}"  role="form" enctype="multipart/form-data">
+                                            @csrf
+                                           
 
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Lista Materias</button>
+                                            <input type="hidden" name="id_est"   id="id_est"   value="{{ $lista->id_est}}">
+                                            <input type="hidden" name="id_carre" id="id_carre" value="{{ $lista->id_carre}}">
+                                            <input type="hidden" name="id_turno" id="id_turno" value="{{ $lista->id_turno}}">
                                             
-                                                </form>
+                                                    <button type="submit" class="btn btn-success"><i class="fa fa-fw fa-pencil"></i> Asignar</button>
+                                                </form>  
                                             </td>
                                         </tr>
                                     @endforeach

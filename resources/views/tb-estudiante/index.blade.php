@@ -36,9 +36,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Id Est</th>
+                                   
 										<th>Cod Est</th>
 										<th>Nombre Est</th>
 										<th>Ape P Est</th>

@@ -55,8 +55,8 @@
                                             <td>
                                               
                                             <div class="card-body">
-                        <form method="POST" action="{{ route('mat_lista',$lista->id_doc) }}"  role="form" enctype="multipart/form-data">
-                            @csrf
+                                                <form method="POST" action="{{ route('mat_lista',$lista->id_doc) }}"  role="form" enctype="multipart/form-data">
+                                                    @csrf
 
                                                 <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Lista Materias</button>
                                             
