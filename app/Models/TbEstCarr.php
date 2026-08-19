@@ -12,6 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id_carre
  * @property $id_turno
  * @property $id_pl
+ * @property $grado_est     
+ * @property $matricula_est  
  * @property $created_at
  * @property $updated_at
  *
@@ -37,7 +39,7 @@ class TbEstCarr extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_est_carr','id_est','id_carre','id_turno','id_pl'];
+    protected $fillable = ['id_est_carr','id_est','id_carre','id_turno','nro_serie','id_pl','grado_est','matricula_est'];
 
 
     /**

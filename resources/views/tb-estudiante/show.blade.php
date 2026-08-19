@@ -16,19 +16,30 @@
                             <span class="card-title">Show Tb Estudiante</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('tb-estudiantes.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('estudiantes.index') }}"> Back</a>
                         </div>
+
+                       <form method="POST" action="{{ route('hoja_boleta_ins_est') }}"  role="form" enctype="multipart/form-data">
+                            @csrf
+                            <div>                
+                                <input type="hidden" name="id_est" id="id_est" value="{{ $tbEstudiante->id_est }}">             
+                                <input class="col-sm-3 btn btn-danger btn-sm float-right bi bi-0-square-fill" type="submit" value="Imprimir PDF" >
+                            </div> 
+                                <div id="resultados"></div>                               
+                        </form>
+
                     </div>
 
                     <div class="card-body">
                         
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <strong>Id Est:</strong>
                             {{ $tbEstudiante->id_est }}
-                        </div>
+                        </div> -->
+                       
                         <div class="form-group">
                             <strong>Cod Est:</strong>
-                            {{ $tbEstudiante->cod_est }}
+                            {{ $tbEstudiante->id_est }}
                         </div>
                         <div class="form-group">
                             <strong>Nombre Est:</strong>
@@ -46,10 +57,10 @@
                             <strong>Ci Est:</strong>
                             {{ $tbEstudiante->ci_est }}
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <strong>Exp Est:</strong>
                             {{ $tbEstudiante->exp_est }}
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <strong>Fec Nac Est:</strong>
                             {{ $tbEstudiante->fec_nac_est }}
@@ -70,14 +81,14 @@
                             <strong>Email Est:</strong>
                             {{ $tbEstudiante->email_est }}
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <strong>Tur Des Est:</strong>
                             {{ $tbEstudiante->tur_des_est }}
                         </div>
                         <div class="form-group">
                             <strong>Fec Regis Est:</strong>
                             {{ $tbEstudiante->fec_regis_est }}
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <strong>Padre Del Est:</strong>
                             {{ $tbEstudiante->padre_del_est }}
@@ -90,14 +101,14 @@
                             <strong>Nombre Trab Padre Est:</strong>
                             {{ $tbEstudiante->nombre_trab_padre_est }}
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <strong>Tel Trab Padre Est:</strong>
                             {{ $tbEstudiante->tel_trab_padre_est }}
                         </div>
                         <div class="form-group">
                             <strong>Dir Trab Padre Est:</strong>
                             {{ $tbEstudiante->dir_trab_padre_est }}
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <strong>Cole Est:</strong>
                             {{ $tbEstudiante->cole_est }}
@@ -106,14 +117,14 @@
                             <strong>Sexo Est:</strong>
                             {{ $tbEstudiante->sexo_est }}
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <strong>Numsol Est:</strong>
                             {{ $tbEstudiante->numsol_est }}
                         </div>
                         <div class="form-group">
                             <strong>Insc Est:</strong>
                             {{ $tbEstudiante->insc_est }}
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <strong>Dom Est:</strong>
                             {{ $tbEstudiante->dom_est }}
@@ -142,11 +153,11 @@
                             <strong>Tipo Cole Est:</strong>
                             {{ $tbEstudiante->tipo_cole_est }}
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <strong>Pais Cod Est:</strong>
                             {{ $tbEstudiante->pais_cod_est }}
-                        </div>
-                        <div class="form-group">
+                        </div> -->
+                        <!-- <div class="form-group">
                             <strong>Fec Emitb Est:</strong>
                             {{ $tbEstudiante->fec_emitb_est }}
                         </div>
@@ -169,13 +180,13 @@
                         <div class="form-group">
                             <strong>Fact Nombre Est:</strong>
                             {{ $tbEstudiante->fact_nombre_est }}
-                        </div>
-                        <div class="form-group">
+                        </div> -->
+                        <div class="form-group" >
                             <strong>Foto Est:</strong>
                             {{ $tbEstudiante->foto_est }}
                         </div>
                         <div class="form-group">
-                            <strong>Est Pass:</strong>
+                            <strong >Est Pass:</strong>
                             {{ $tbEstudiante->est_pass }}
                         </div>
                         <div class="form-group">

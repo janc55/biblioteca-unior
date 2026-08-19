@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>UNIOR</b>',
-    'logo_img' => 'img/Logo.png',
+    'logo_img' => 'uniorlogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -304,162 +304,101 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'Buscar',
         ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+        // [
+        //     'text'        => 'pages',
+        //     'url'         => 'admin/pages',
+        //     'icon'        => 'far fa-fw fa-file',
+        //     'label'       => 4,
+        //     'label_color' => 'success',
+        // ],
 
-        ['header' => 'account_settings'],
+        ['header' => 'ROLORES'],
 
-        [
-            'text' => 'Agregar Notas',
-            'url'  => 'seleccionar',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+// //----------------------------------------------------------------------
 
-        [
-            'text' => 'Estudiantes',
-            'url'  => 'estudiantes',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Docentes',
-            'url'  => 'docentes',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Lista de notas',
-            'url'  => 'lista_nota',
-            'icon' => 'fas fa-fw fa-user',
-        ],
 
-        [
-            'text' => 'Nota Estudiante',
-            'url'  => 'vista2',
-            'icon' => 'fas fa-fw fa-user',
-        ],
 
-        [
-            'text' => 'Materias de Estudiantes',
-            'url'  => 'vista',
-            'icon' => 'fas fa-fw fa-user',
-        ],
 
-        [
-            'text' => 'Lista de Materias de Docente',
-            'url'  => 'docentemateria',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+[
+    'text' => 'Docentes',
+    'url'  => 'docente',
+    'icon' => 'fas fa-fw fa-user',
+],
+[
+    'text' => 'Estudiantes',
+    'url'  => 'estudiantes',
+    'icon' => 'fas fa-fw fa-user',
+],
+[
+    'text' => 'OTROS USUARIOS',
+    'url'  => 'usu_admin',
+    'icon' => 'fas fa-fw fa-user',
+],
 
-        [
-            'text' => 'Carreras',
-            'url'  => 'carreras',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Materias',
-            'url'  => 'materias',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Boletas',
-            'url'  => 'boletas',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Gestiones',
-            'url'  => 'gestiones',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Becas',
-            'url'  => 'becas',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Planes',
-            'url'  => 'plane',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Asignación Estudiante Materia',
-            'url'  => 'est_carrera',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Asignación Docente Materia',
-            'url'  => 'sel_docente',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        // [
-        
-        //     'text' => 'Asignacion Estudiante',
-        //     'url'  => 'asignacionest',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'Seleccionar Docente y materia',
-        //     'url'  => 'reg_mat',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'Nomina Estudiante',
-        //     'url'  => 'nomina_est',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'Estudiante con materia',
-        //     'url'  => 'est_doc_mate_gest',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'Estudiante funcion materia',
-        //     'url'  => 'asigP',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        // [
-        //     'text' => 'Inscripciones',
-        //     'url'  => 'inscripciones',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-       
-        // [
-        //     'text' => 'Asignar boleta',
-        //     'url'  => 'boleta_asignar',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
-        [
-            'text' => 'Inscripciones',
-            'url'  => 'inscripciones_boleta',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Crear Boleta de Estudiante',
-            'url'  => 'boletas_2',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        // [
-        //     'text' => 'Registro Inscripciones',
-        //     'url'  => 'reg_ins',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
+[
+    'text' => 'ACTIVAR Y DESACTIVAR USUARIO',
+    'url'  => 'ver_usu',
+    'icon' => 'fas fa-fw fa-user',
+],
+
+[
+    'text' => 'Atras',
+    'url'  => 'inicio_ad',
+    'icon' => 'fas fa-fw fa-user',
+],
+// [
+//     'text'    => 'multilevel',
+//     'icon'    => 'fas fa-fw fa-share',
+//     'submenu' => [
+//         [
+//             'text' => 'level_one',
+//             'url'  => '#',
+//         ],
+//         [
+//             'text'    => 'level_one',
+//             'url'     => '#',
+//             'submenu' => [
+//                 [
+//                     'text' => 'level_two',
+//                     'url'  => '#',
+//                 ],
+//                 [
+//                     'text'    => 'level_two',
+//                     'url'     => '#',
+//                     'submenu' => [
+//                         [
+//                             'text' => 'level_three',
+//                             'url'  => '#',
+//                         ],
+//                         [
+//                             'text' => 'level_three',
+//                             'url'  => '#',
+//                         ],
+//                     ],
+//                 ],
+//             ],
+//         ],
+//         [
+//             'text' => 'level_one',
+//             'url'  => '#',
+//         ],
+//     ],
+// ],
+// //-----------------------------------------------------------------------
 
         // [
         //     'text' => 'profile',
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-user',
         // ],
-       
+
 
     ],
 

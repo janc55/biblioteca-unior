@@ -121,4 +121,36 @@ class TbLogin2Controller extends Controller
         return redirect()->route('tb-login2s.index')
             ->with('success', 'TbLogin2 deleted successfully');
     }
+
+
+
+public function encriptarPasswords()
+
+{
+
+
+  ini_set('max_execution_time', 3000); 
+   
+   $docentes = \App\Models\tb_docentes::all();
+    foreach ($docentes as $doc) {
+        if (!empty($doc->ci)) {
+            $doc->doc_pass = \Hash::make($doc->ci);
+            $doc->save();
+        }
+    }
+
+    // ESTUDIANTES
+    $estudiantes = \App\Models\TbEstudiante::all();
+    foreach ($estudiantes as $est) {
+        if (!empty($est->ci_est)) {
+            $est->est_pass = \Hash::make($est->ci_est);
+            $est->save();
+        }
+    }
+
+    return response()->json(['mensaje' => 'Contraseñas de docentes y estudiantes actualizadas correctamente']);
+}
+
+
+
 }

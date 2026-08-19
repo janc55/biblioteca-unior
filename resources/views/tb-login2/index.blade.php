@@ -18,12 +18,11 @@
     </div>
 
     <!-- Login Form --> 
-    <form action="funlogin2.php" method="POST">
-      
-    @csrf
+    <form method="POST" action="{{ route('lg_v') }}"  role="form" enctype="multipart/form-data">
+      @csrf
 
-      <input type="text" id="login" class="fadeIn second" name="ci" placeholder="usuario">
-      <input type="text" id="password" class="fadeIn third" name="pass" placeholder="contraseña">
+      <input type="text" id="ci" class="fadeIn second" name="ci" placeholder="usuario">
+      <input type="text" id="pass" class="fadeIn third" name="pass" placeholder="contraseña">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 

@@ -12,14 +12,18 @@
             <div class="col-md-12">
 
                 @includeif('partials.errors')
-
+                @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Tb Docente</span>
+                        <span class="card-title"></span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tb-docentes.update', $tbDocente->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                    <form method="POST" action="{{ route('docente_edit') }}"  role="form" enctype="multipart/form-data">
+                        
                             @csrf
 
                             @include('tb-docente.form')

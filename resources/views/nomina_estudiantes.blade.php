@@ -4,14 +4,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1 class="text-center">LISTA DE ESTUDIANTES</h1>
 @stop
 
 @section('content')
-<!DOCTYPE html>
-<html>
+
 <head>
-    <title>Laravel 9 Table Inline Edit Using JQuery Editable - NiceSnippest.com</title>
+    <title>Dashboard</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css" rel="stylesheet" />
@@ -25,24 +24,35 @@
         line-height:50px;
     }
 </style>
-<body>
 
-    <form action="por_doc" method="POST">
 
-        @csrf
-
-        <label>Nombre</label>
-        <input type="text" name="nombre" id="">
-
-        <input type="submit" value="Enviar">
-    </form>
-
+    
         <div class="col-md-8 col-md-offset-2">
-        <h2 class="text-center">NOTAS DE LOS ESTUDIANTES</h2>
         <div class="panel panel-info">
-            <div class="panel-heading">LISTA DE ESTUDIANTES</div>
-            <div class="panel-body">
-                <table class="table table-bordered data-table">
+        @foreach($lista as $lista2) 
+        <h5 class="text">DOCENTE: {{ $lista2->grado}} {{ $lista2->docente}} </h5>
+        <h5 class="text">MATERIA: {{ $lista2->codigo_mat}} -  {{ $lista2->nombre_mat}}  </h5>
+        <H5 class="text">PARALELO: {{ $lista2->paralelo_asig_mat}}</H5>
+        <h5 class="text">TURNO: {{ $lista2->desc_turno}}   </h5>
+        <h5 class="text">GESTION: {{ $lista2->periodo_gestion}} / {{ $lista2->anio_gestion}}  </h5>
+        
+        @break
+        @endforeach
+
+        @foreach($lista as $lista3) 
+        <form method="POST" action="{{ route('hoja_nomina_est') }}"  role="form" enctype="multipart/form-data">
+              @csrf
+              <div>                                    
+              <input type="hidden" id="id_doc" name="id_doc" value="{{ $lista3->id_doc }}">                            
+              <input class="btn btn-danger" type="submit" value="Reporte PDF " >                                   
+              </div>                                                                     
+        </form>      
+        @break
+        @endforeach
+
+            <div class="panel-heading">NOMINA</div>
+            <div class="panel-body"> 
+                <table id="example1" class="table table-bordered data-table">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -55,12 +65,14 @@
 
                         </tr>
                     </thead>
+                    <div hidden>{{ $i=1 }}</div>
                     <tbody>
+                  
                         @foreach($lista as $lista)
                             <tr>
 
                                 <td>
-                                 {{ $lista->id_asig_mat_est }}
+                                {{ $i++}}
                                 </td>
                                 <td>
                                     {{ $lista->cod_est}}
@@ -89,9 +101,8 @@
         </div>
         </div>
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $.fn.editable.defaults.mode = 'inline';
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -106,8 +117,6 @@
             title: 'Enter name'
         });
 
-
-
         $(".deletelista").click(function(){
             $(this).parents('tr').hide();
             var id = $(this).data("id");
@@ -115,7 +124,7 @@
             $.ajax(
             {
                 method:'POST',
-                url: "lista/delete/"+id,
+                url: "lista/delete/"+id, 
                 data: {_token: token},
                 success: function(data)
                 {
@@ -123,17 +132,51 @@
                 }
             });
         });
-    </script>
-</body>
-</html>
+    </script> -->
 
 
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+
+
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
 @stop
+

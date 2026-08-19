@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Materia</h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Tb Materia</span>
+                        <span class="card-title">Agregar Materia</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('materias.store') }}"  role="form" enctype="multipart/form-data">

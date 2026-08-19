@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id_gestion
  * @property $periodo_gestion
  * @property $anio_gestion
+ *  @property $estado_gestion
  * @property $created_at
  * @property $updated_at
  *
@@ -40,7 +41,7 @@ class TbGestione extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_gestion','periodo_gestion','anio_gestion'];
+    protected $fillable = ['id_gestion','periodo_gestion','anio_gestion','estado_gestion'];
 
 
     /**

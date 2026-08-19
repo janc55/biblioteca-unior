@@ -38,8 +38,27 @@ h2 {
   width: 100%;
   min-height: 100%;
   padding: 20px;
-  background-color: #a93226;;
+  /* background-color: #a93226; */
+  background-image: url("/img/pantalla.png");
+  background-color: rgba(0,0,0,0.6);
+  opacity:0.1;
+  filter:alpha(opacity=500);
 }
+/* section {
+  background-image: url("imagen/puestaDeSol.png");
+} */
+
+/* Configuracion de imagen de fondo */
+
+.img2 {
+  opacity:0.4;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
+ }
+ 
+ .img2:hover {
+  opacity:1.0;
+  filter:alpha(opacity=100); /* For IE8 and earlier */
+ }
 
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -260,3 +279,4 @@ input[type=text]:placeholder {
 #icon {
   width:60%;
 }
+

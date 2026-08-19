@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class vista_mat_docentes extends Model
 {
+    protected $table="vista_mat_docentes";
     use HasFactory;
 }

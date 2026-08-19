@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class vista_para_inscripciones extends Model
 {
+    protected $table="vista_para_inscripciones";
     use HasFactory;
 }

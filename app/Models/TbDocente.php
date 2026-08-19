@@ -61,7 +61,7 @@ class TbDocente extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_doc','nombre_doc','ape_p_doc','ape_m_doc','cod_doc','ci','expedido','grado','fec_nac_doc','tel_dom_doc','cel_doc','dom_doc','lug_doc','dir_trab_doc','tel_trab_doc','email_doc','estado_civ_doc','nacional_doc','obser_doc','foto_doc'];
+    protected $fillable = ['id_doc','nombre_doc','ape_p_doc','ape_m_doc','cod_doc','ci','expedido','grado','fec_nac_doc','tel_dom_doc','cel_doc','dom_doc','lug_doc','dir_trab_doc','tel_trab_doc','email_doc','estado_civ_doc','nacional_doc','obser_doc','foto_doc','doc_pass'];
 
 
     /**
@@ -71,7 +71,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbAsignacionMat', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -79,7 +79,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbDeposito', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -87,7 +87,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbDesignacione', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -95,7 +95,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbDocenteCuenta', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -103,7 +103,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbIngreso', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -111,7 +111,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbListaAlmacene', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -119,7 +119,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbModuloDocFecha', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -127,7 +127,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbPapeleta', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -135,7 +135,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbPlanillaDoc', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -143,7 +143,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbPresupuesto', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -151,7 +151,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbRegisDocumenDoc', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -159,7 +159,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbRequerimiento', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -167,7 +167,7 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbRevalida', 'id_doc', 'id_doc');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -175,6 +175,6 @@ class TbDocente extends Model
     {
         return $this->hasMany('App\Models\TbTrib', 'id_doc', 'id_doc');
     }
-    
+
 
 }

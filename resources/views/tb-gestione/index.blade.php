@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Gestiones</h1>
 @stop
 
 @section('content')
@@ -14,13 +14,16 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Tb Gestione') }}
-                            </span>
+                        <form action="../../form-result.php" method="post" target="_blank">
+                            <div>
+                            <input class="col-sm-7" class="form-control " type="search" name="busqueda" placeholder=" 🔎 Busca" size="20" maxlength="70"> 
+                            <input class="col-sm-3 btn btn-success btn-sm float-left bi bi-0-square-fill" type="submit" value="Buscar" >
+                            </div>    
+                            </form>
 
                              <div class="float-right">
                                 <a href="{{ route('gestiones.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -33,7 +36,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table id="example1" class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
@@ -41,7 +44,7 @@
 										<th>Id Gestion</th>
 										<th>Periodo Gestion</th>
 										<th>Anio Gestion</th>
-
+                                        <th>Estado Gestion</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -53,7 +56,7 @@
 											<td>{{ $tbGestione->id_gestion }}</td>
 											<td>{{ $tbGestione->periodo_gestion }}</td>
 											<td>{{ $tbGestione->anio_gestion }}</td>
-
+                                            <td>{{ $tbGestione->estado_gestion }}</td>
                                             <td>
                                                 <form action="{{ route('gestiones.delete',$tbGestione->id_gestion) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('gestiones.show',$tbGestione->id_gestion) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
@@ -78,9 +81,45 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+
+
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
 @stop
 

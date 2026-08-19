@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\TbMateria;
+use App\Models\TbCarrera;
+use App\Models\TbSemestre;
+
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +35,10 @@ class TbMateriaController extends Controller
     public function create()
     {
         $tbMateria = new TbMateria();
-        return view('tb-materia.create', compact('tbMateria'));
+        $tbCarrera = new TbCarrera();
+        $tbSemestre = new TbSemestre();
+        return view('tb-materia.create', compact('tbMateria','tbCarrera','tbSemestre'));
+        
     }
 
     /**
@@ -46,7 +52,9 @@ class TbMateriaController extends Controller
         request()->validate(TbMateria::$rules);
 
         $tbMateria = TbMateria::create($request->all());
-        
+        // $tbCarrera = TbCarrera::create($request->all());
+        // $tbSemestre = TbSemestre::create($request->all());
+
         return redirect()->route('materias.index')
             ->with('success', 'TbMateria created successfully.');
     }

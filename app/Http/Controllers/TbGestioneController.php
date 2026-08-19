@@ -86,9 +86,10 @@ class TbGestioneController extends Controller
      */
     public function update(Request $request, TbGestione $tbGestione)
     {
-        request()->validate(TbGestione::$rules);
+        // request()->validate(TbGestione::$rules);
 
-        $tbGestione->update($request->all());
+        $Gestion = TbGestione::find($request->id_gestion);
+        $Gestion->update($request->all());
 
         return redirect()->route('gestiones.index')
             ->with('success', 'TbGestione updated successfully');

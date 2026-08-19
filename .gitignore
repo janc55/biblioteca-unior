@@ -2,6 +2,7 @@
 /public/build
 /public/hot
 /public/storage
+/dist
 /storage/*.key
 /vendor
 .env
@@ -13,6 +14,7 @@ Homestead.yaml
 auth.json
 npm-debug.log
 yarn-error.log
+.ftpquota
 /.fleet
 /.idea
 /.vscode

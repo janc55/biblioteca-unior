@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Materias</h1>
 @stop
 
 @section('content')
@@ -15,7 +15,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Tb Materia</span>
+                        <span class="card-title">Editar Materia</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('materias.update', $tbMateria->id_materia) }}"  role="form" enctype="multipart/form-data">

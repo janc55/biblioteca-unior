@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property $id_gestion
  * @property $paralelo_asig_mat
  * @property $tipo_asig_mat
+ * @property $inicio_desig
+ * @property $fin_desig
  * @property $obs_asig_mat
  * @property $created_at
  * @property $updated_at
@@ -47,7 +49,7 @@ class TbAsignacionMat extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_asig_mat','id_doc','id_carre','id_materia','id_turno','id_gestion','paralelo_asig_mat','tipo_asig_mat','obs_asig_mat'];
+    protected $fillable = ['id_asig_mat','id_doc','id_carre','id_materia','id_turno','id_gestion','paralelo_asig_mat','tipo_asig_mat','inicio_desig','fin_desig','obs_asig_mat'];
 
 
     /**
@@ -89,6 +91,7 @@ class TbAsignacionMat extends Model
     {
         return $this->hasOne('App\Models\TbTurno', 'id_turno', 'id_turno');
     }
+    
     
 
 }

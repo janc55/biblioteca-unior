@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\vista_nota;
 use App\Models\vista_mat_docentes;
 use App\Models\tb_asignacion_mat_ests;
+use App\Models\vista_obs_notas;
+use App\Models\TbGestione;
+use PDF;
+
+
 class lista_nota extends Controller
 {
     /**
@@ -15,7 +20,11 @@ class lista_nota extends Controller
      */
     public function index()
     {
-        $lista = vista_nota::get()->where('gestion_asig_mat','2008');
+        $user = TbGestione::get()->last();
+
+        // $lista = vista_nota::get()->where('id_gestion',$user->id_gestion);
+       $lista = vista_nota::get();
+
         return view('lista_nota', compact('lista'));
     }
 
@@ -25,28 +34,75 @@ class lista_nota extends Controller
         // echo "Nombre: ".$request->input('nombre')."<br>";
         // echo "Apellido: ".$request->apellido."<br>";
         // echo "Msj: ".request('mensaje')."<br>";
-        $lista = vista_nota::get()->where('docente',$request->input('nombre'))->where('gestion_asig_mat','2008');
+        $user = TbGestione::get()->last();
+        //    echo $user->id_gestion;
+
+        // $lista = vista_nota::get()->where('docente',$request->input('nombre'))->where('id_gestion',$user->id_gestion);
+        $lista = vista_nota::get()->where('docente',$request->input('nombre'));
         return view('lista_nota', compact('lista'));
     }
 
     public function por_id($id)
     {
-
         $lista = vista_nota::get()->where('id_asig_mat',$id);
         return view('lista_nota', compact('lista'));
+    }     
+    public function por_id_pdf(request $request)
+    {
+        $user = TbGestione::get()->last();
+        $datos = vista_nota::get()->where('id_doc','=',$request->id);
+        $datos2 = vista_nota::limit(1)->where('id_doc','=',$request->id)->get();
+        $datos3 = vista_obs_notas::get();
+
+        // $consulta = Modelo::select("rol")->latest()->first();       
+        $data = [
+            'title' => 'Welcome to Tutsmake.com',
+            'date' => date('m/d/Y'),
+            'datos'=> $datos,
+            'datos2'=> $datos2,
+            'datos3'=> $datos3,
+
+        ];           
+        $pdf = PDF::loadView('notaestudiante2.hoja_control_de_notas', $data);    
+        return $pdf->download('control_de_notas_imprimir.pdf');
+          
+    }
+    public function por_id_nomina_pdf(request $request)
+    {
+        $user = TbGestione::get()->last();
+        $datos = vista_nota::get()->where('id_doc','=',$request->id_doc);
+        $datos2 = vista_nota::limit(1)->where('id_doc','=',$request->id_doc)->get();
+        $datos3 = vista_obs_notas::get();
+
+        // $consulta = Modelo::select("rol")->latest()->first();       
+        $data = [
+            'title' => 'Welcome to Tutsmake.com',
+            'date' => date('m/d/Y'),
+            'datos'=> $datos,
+            'datos2'=> $datos2,
+            'datos3'=> $datos3,
+        ];           
+        $pdf = PDF::loadView('notasestudiante.hoja_nomina_est', $data);    
+        return $pdf->download('nomina_est_imprimir.pdf');          
     }
 
-    public function nomina_est_id($id)
+    public function nomina_est_id(request $request,$id)
     {
-
         $lista = vista_nota::get()->where('id_asig_mat',$id);
-        return view('nomina_estudiantes', compact('lista'));
+        // $lista2 = vista_nota::get()->where('id_doc',$request->id_doc);
+        return view('nomina_estudiantes', compact('lista')); 
     }
 
     public function seleccionardocente()
     {
-       
-        $vista = vista_mat_docentes::get()->where('anio_gestion','2022')->where('cod_doc','129');
+    //    $gestion= TbGestione::get()->where('id_asig_mat',$id);
+       $user = TbGestione::get()->last();
+    //    echo $user->id_gestion;
+
+        // $vista = vista_mat_docentes::get()->where('id_gestion',$user->id_gestion)->where('cod_doc','129');
+        // $vista = vista_mat_docentes::get()->where('cod_doc','129');
+        $vista = vista_mat_docentes::get();
+
         return view('seleccionardocente', compact('vista'));
     }
     /**

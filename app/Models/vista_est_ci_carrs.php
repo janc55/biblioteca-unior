@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class vista_est_ci_carrs extends Model
 {
+    protected $table="vista_est_ci_carrs"; 
     use HasFactory;
 }

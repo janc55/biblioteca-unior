@@ -3,7 +3,8 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+
+    <h1>Estudiante: {{ $tbEstudiante->nombre_est }} {{ $tbEstudiante->ape_p_est }} {{ $tbEstudiante->ape_m_est }}</h1>
 @stop
 
 @section('content')
@@ -15,10 +16,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Tb Estudiante</span>
+                        <span class="card-title">Agregar información de Estudiante</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tb-estudiantes.update', $tbEstudiante->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('estudiantes.update', $tbEstudiante->id_est) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

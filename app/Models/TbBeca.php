@@ -25,7 +25,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TbBeca extends Model
 {
+    protected $table='tb_becas';
     protected $primaryKey = 'id_beca';
+
     static $rules = [
 		'id_beca' => 'required',
     ];

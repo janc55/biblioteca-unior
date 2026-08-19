@@ -20,40 +20,25 @@ class tb_login2sController extends Controller
         $hashed_value = $user->getAuthPassword();
         return $hashed_value == md5($plain);
     }
-    
-    
-    
-    
-    //
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-    // public function index()
-    // {
-    //     $usuarioEmail = auth()->user()->email;
-    //     $notas = Nota::where('usuario', $usuarioEmail)->paginate(5);
-    //     return view('notas.lista',compact('notas'));
 
-    //     $ci_usuario   = auth()->user()->ci;
-    //     $pass_usuario = auth()->user()->doc_pass;   
-    //     $tb_docentes=tb_docentes::where('ci',$ci_usuario)->('doc_pass',$pass_usuario);
-    // }
-    // public function create()
-    // {
-    //     return view('notas.crear');
-    // }
-    // public function store(Request $request)
-    // {
+    public function retorno_datos(Request $request)
+    { 
+    $ci  =$request->ci;   //Guardo el valor1 que recibo del formulario
+    $pass=$request->pass; //Guardo el valor2 que recibo del formulario
 
-    //     $nota = new Nota();
-    //     $nota->nombre = $request->nombre;
-    //     $nota->descripcion = $request->descripcion;
-    //     $nota->usuario = auth()->user()->email;
-    //     $nota->save();
-
-    //     return back()->with('mensaje', 'Nota Agregada!');
-    // }
-
+    $dato1 = tb_docentes::get()->where('ci', '=', $ci);
+    $dato = $dato1->first();
+    echo $dato;
+    echo $dato->ci;
+    if($dato->ci == $ci && $dato->doc_pass==$pass )
+        {
+            return redirect('/portal');
+        }
+        else
+        {
+            return redirect('/login');
+            
+        }
+    }
    
 }

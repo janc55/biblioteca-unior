@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Tb Est Carr
+    Lista de Asignaciones de Estudiantes
 @endsection
 
 @section('content')
@@ -12,13 +12,16 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Tb Est Carr') }}
-                            </span>
+                        <form action="../../form-result.php" method="post" target="_blank">
+                            <div>
+                            <input class="col-sm-7" class="form-control " type="search" name="busqueda" placeholder=" 🔎 Busca" size="20" maxlength="70"> 
+                            <input class="col-sm-3 btn btn-success btn-sm float-left bi bi-0-square-fill" type="submit" value="Buscar" >
+                            </div>    
+                            </form>
 
                              <div class="float-right">
                                 <a href="{{ route('tb-est-carrs.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Nuevo') }}
                                 </a>
                               </div>
                         </div>

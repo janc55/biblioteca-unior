@@ -58,13 +58,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TbEstudiante extends Model
 {
-    
+    protected $primaryKey = 'id_est';
     static $rules = [
 		'id_est' => 'required',
     ];
 
     protected $perPage = 20;
 
+
+protected $table = "tb_estudiantes";
     /**
      * Attributes that should be mass-assignable.
      *

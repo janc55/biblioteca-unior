@@ -4,7 +4,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1 class="text-center">Notas de los Estudiantes</h1>
 @stop
 
 @section('content')
@@ -27,7 +27,7 @@
 </style>
 <body>
 
-    <form action="por_doc" method="POST">
+    <!-- <form action="por_doc" method="POST">
 
         @csrf
 
@@ -35,14 +35,44 @@
         <input type="text" name="nombre" id="">
 
         <input type="submit" value="Enviar">
-    </form>
+    </form> -->   
 
         <div class="col-md-8 col-md-offset-2">
-        <h2 class="text-center">NOTAS DE LOS ESTUDIANTES</h2>
+        <!-- <form action="../../form-result.php" method="post" target="_blank">
+                <div> @csrf
+                <input class="col-sm-7" class="form-control " type="search" name="busqueda" placeholder=" 🔎 Busca" size="20" maxlength="70"> 
+                <input class="col-sm-3 btn btn-success btn-sm float-left bi bi-0-square-fill" type="submit" value="Buscar" >
+                </div>    
+        </form>  -->
+
         <div class="panel panel-info">
-            <div class="panel-heading">LISTA DE ESTUDIANTES</div>
+        @foreach($lista as $lista2) 
+        <h5 class="text">DOCENTE: {{ $lista2->grado}} {{ $lista2->docente}} </h5>
+        <h5 class="text">MATERIA: {{ $lista2->codigo_mat}} -  {{ $lista2->nombre_mat}}  </h5>
+        <H5 class="text">PARALELO: {{ $lista2->paralelo_asig_mat}}</H5>
+        <h5 class="text">TURNO: {{ $lista2->desc_turno}}   </h5>
+        <h5 class="text">GESTION: {{ $lista2->periodo_gestion}} / {{ $lista2->anio_gestion}}  </h5>
+
+        <form method="POST" action="{{ route('hoja_control_notas') }}"  role="form" enctype="multipart/form-data">
+              @csrf
+              <div>                                    
+              <input type="hidden" id="id" name="id" value="{{ $lista2->id_doc }}">                            
+              <input class="btn btn-danger" type="submit" value="Reporte PDF " >                                   
+              </div>                                                                     
+        </form>     
+        
+        @break
+        @endforeach
+        <!-- <h2 class="text-center">NOTAS DE LOS ESTUDIANTES</h2> -->
+     
+        <div class="panel panel-info">
+       
+            <!-- <div class="panel-heading">LISTA DE ESTUDIANTES</div> -->
+            <h6>LISTA DE NOTAS</h6>
             <div class="panel-body">
-                <table class="table table-bordered data-table">
+            
+                <table id="example1" class="table table-bordered data-table">
+                
                     <thead>
                         <tr>
                             <th>No</th>
@@ -55,18 +85,20 @@
 
                         </tr>
                     </thead>
+
+                    @foreach($lista as $lista)
                     <tbody>
-                        @foreach($lista as $lista)
+                       
                             <tr>
 
                                 <td>
-                                 {{ $lista->id_asig_mat_est }}
+                                    {{ $lista->id_asig_mat_est }}
                                 </td>
                                 <td>
                                     {{ $lista->cod_est}}
                                 </td>
                                 <td>
-                               {{ $lista->estudiante }}
+                                    {{ $lista->estudiante }}
                                 </td>
                                 <td>
                                     <a href="" class="update" data-name="eval_p1" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 1P">{{ $lista->eval_p1 }}</a>
@@ -79,11 +111,11 @@
                                 </td>
                                 <td>
                                     <a href="" class="update" data-name="eval_2t" data-type="text" data-pk="{{ $lista->id_asig_mat_est}}" data-title="Enter Nota 2T">{{ $lista->eval_2t }}</a>
-                                </td>
-
-                            </tr>
-                        @endforeach
-                    </tbody>
+                                </td>                               
+                            </tr>                       
+                    </tbody>                          
+                               
+                    @endforeach                    
                 </table>
             </div>
         </div>
@@ -127,13 +159,48 @@
 </body>
 </html>
 
-
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+
+
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+  </script>
 @stop
