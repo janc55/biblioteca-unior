@@ -106,9 +106,9 @@ Route::resource('/usu_admin', \App\Http\Controllers\UsuarioAdministrativoControl
 
 Route::resource('/form_solDireccot', \App\Http\Controllers\SolicitudLibroController::class);
 Route::get('/form_solDireccotcreate', [\App\Http\Controllers\SolicitudLibroController::class, 'create'])->name('form_solDireccotcreate');
-Route::post('/form_solDireccotcreate', [\App\Http\Controllers\SolicitudLibroController::class, 'create'])->name('form_solDireccotcreate');
+Route::post('/form_solDireccotcreate', [\App\Http\Controllers\SolicitudLibroController::class, 'create'])->name('form_solDireccotcreate.post');
 Route::get('/form_solDireccotbi', [\App\Http\Controllers\SolicitudLibroController::class, 'create_sobi'])->name('form_solDireccotbi');
-Route::post('/form_solDireccotbi', [\App\Http\Controllers\SolicitudLibroController::class, 'create_sobi'])->name('form_solDireccotbi');
+Route::post('/form_solDireccotbi', [\App\Http\Controllers\SolicitudLibroController::class, 'create_sobi'])->name('form_solDireccotbi.post');
 
 
 
@@ -325,31 +325,31 @@ Route::post('bus_lib_archados', [TbLibroController::class, 'filtrar_archivados']
 
 Route::get('bus_lib_arch', [TbLibroController::class, 'filtrar_arch'])->name('bus_lib_arch');
 
-Route::post('bus_lib_arch', [TbLibroController::class, 'filtrar_arch'])->name('bus_lib_arch');
+Route::post('bus_lib_arch', [TbLibroController::class, 'filtrar_arch'])->name('bus_lib_arch.post');
 
 
 Route::get('bus_lib_dig', [TbLibroController::class, 'filtrar_dig'])->name('bus_lib_dig');
 
-Route::post('bus_lib_dig', [TbLibroController::class, 'filtrar_dig'])->name('bus_lib_dig');
+Route::post('bus_lib_dig', [TbLibroController::class, 'filtrar_dig'])->name('bus_lib_dig.post');
 
 
 
 Route::get('bus_lib_rev', [TbLibroController::class, 'filtrar_rev'])->name('bus_lib_rev');
 
-Route::post('bus_lib_rev', [TbLibroController::class, 'filtrar_rev'])->name('bus_lib_rev');
+Route::post('bus_lib_rev', [TbLibroController::class, 'filtrar_rev'])->name('bus_lib_rev.post');
 
 
 
 Route::get('bus_lib_tes', [TbLibroController::class, 'filtrar_tes'])->name('bus_lib_tes');
 
-Route::post('bus_lib_tes', [TbLibroController::class, 'filtrar_tes'])->name('bus_lib_tes');
+Route::post('bus_lib_tes', [TbLibroController::class, 'filtrar_tes'])->name('bus_lib_tes.post');
 
 
 
 
 Route::get('bus_lib_vir', [TbLibroController::class, 'filtrar_virt'])->name('bus_lib_vir');
 
-Route::post('bus_lib_vir', [TbLibroController::class, 'filtrar_virt'])->name('bus_lib_vir');
+Route::post('bus_lib_vir', [TbLibroController::class, 'filtrar_virt'])->name('bus_lib_vir.post');
 
 
 
@@ -389,7 +389,7 @@ Route::resource('/roles_list', \App\Http\Controllers\TbUserController::class);
 
 Route::post('chat_admin', [TbSolPreLibroController::class, 'chat_admin'])->name('chat_admin');
 
-Route::get('chat_admin', [TbSolPreLibroController::class, 'chat_admin'])->name('chat_admin');
+Route::get('chat_admin', [TbSolPreLibroController::class, 'chat_admin'])->name('chat_admin.get');
 
 
 Route::resource('/tb-rooles-us', \App\Http\Controllers\TbRoolesUController::class);
@@ -418,10 +418,10 @@ Route::get('usuarios/{id}/habilitar',  [\App\Http\Controllers\TbUserController::
 
 
 Route::get('pdf_form1', [ \App\Http\Controllers\TbFormSolController::class, 'pdf_impr'])->name('pdf_form1');
-Route::post('pdf_form1', [ \App\Http\Controllers\TbFormSolController::class, 'pdf_impr'])->name('pdf_form1');
+Route::post('pdf_form1', [ \App\Http\Controllers\TbFormSolController::class, 'pdf_impr'])->name('pdf_form1.post');
 
 Route::get('pdf_form2', [ \App\Http\Controllers\TbFormMatBioController::class, 'pdf_impr'])->name('pdf_form2');
-Route::post('pdf_form2', [ \App\Http\Controllers\TbFormMatBioController::class, 'pdf_impr'])->name('pdf_form2');
+Route::post('pdf_form2', [ \App\Http\Controllers\TbFormMatBioController::class, 'pdf_impr'])->name('pdf_form2.post');
 
 
 Route::resource('/log_ses', \App\Http\Controllers\VistaLogSessionController::class);
@@ -448,38 +448,38 @@ Route::get('generar-pdf2/{id}', [ \App\Http\Controllers\TbFormMatBioController::
 
 
 Route::post('sol_rev', [TbSolPreLibroController::class, 'filtrar_rev'])->name('sol_rev');
-Route::get('sol_rev', [TbSolPreLibroController::class, 'filtrar_rev'])->name('sol_rev');
+Route::get('sol_rev', [TbSolPreLibroController::class, 'filtrar_rev'])->name('sol_rev.get');
 
 
 
 Route::get('indexinv', [TbLibroController::class, 'indexinv7'])->name('indexinv');
-Route::post('indexinv', [TbLibroController::class, 'indexinv7'])->name('indexinv');
+Route::post('indexinv', [TbLibroController::class, 'indexinv7'])->name('indexinv.post');
 
 Route::get('indexbol', [TbLibroController::class, 'indexbol8'])->name('indexbol');
-Route::post('indexbol', [TbLibroController::class, 'indexbol8'])->name('indexbol');
+Route::post('indexbol', [TbLibroController::class, 'indexbol8'])->name('indexbol.post');
 
 
 Route::get('indexga', [TbLibroController::class, 'indexga9'])->name('indexga');
-Route::post('indexga', [TbLibroController::class, 'indexga9'])->name('indexga');
+Route::post('indexga', [TbLibroController::class, 'indexga9'])->name('indexga.post');
  
 
 Route::get('indexta', [TbLibroController::class, 'indexta10'])->name('indexta');
-Route::post('indexta', [TbLibroController::class, 'indexta10'])->name('indexta');
+Route::post('indexta', [TbLibroController::class, 'indexta10'])->name('indexta.post');
  
  
  
  
 Route::get('sol7', [TbSolPreLibroController::class, 'filtrar_inv7'])->name('sol7');
-Route::post('sol7', [TbSolPreLibroController::class, 'filtrar_inv7'])->name('sol7');
+Route::post('sol7', [TbSolPreLibroController::class, 'filtrar_inv7'])->name('sol7.post');
  
 Route::get('sol8', [TbSolPreLibroController::class, 'filtrar_bol8'])->name('sol8');
-Route::post('sol8', [TbSolPreLibroController::class, 'filtrar_bol8'])->name('sol8');
+Route::post('sol8', [TbSolPreLibroController::class, 'filtrar_bol8'])->name('sol8.post');
  
 Route::get('sol9', [TbSolPreLibroController::class, 'filtrar_ga9'])->name('sol9');
-Route::post('sol9', [TbSolPreLibroController::class, 'filtrar_ga9'])->name('sol9');
+Route::post('sol9', [TbSolPreLibroController::class, 'filtrar_ga9'])->name('sol9.post');
  
 Route::get('sol10', [TbSolPreLibroController::class, 'filtrar_ta10'])->name('sol10');
-Route::post('sol10', [TbSolPreLibroController::class, 'filtrar_ta10'])->name('sol10');
+Route::post('sol10', [TbSolPreLibroController::class, 'filtrar_ta10'])->name('sol10.post');
  
  
  
@@ -490,7 +490,7 @@ Route::get('create10', [TbLibroController::class, 'create10'])->name('create10')
 
 
 Route::POST('/docente_edit', [\App\Http\Controllers\TbDocenteController::class, 'update'])->name('docente_edit');
-Route::get('/docente_edit', [\App\Http\Controllers\TbDocenteController::class, 'update'])->name('docente_edit');
+Route::get('/docente_edit', [\App\Http\Controllers\TbDocenteController::class, 'update'])->name('docente_edit.get');
 
 
 
